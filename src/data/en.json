@@ -1,0 +1,85 @@
+{
+  "personalInfo": {
+    "name": "Alex Doe",
+    "title": "Senior Full-Stack Engineer",
+    "location": "San Francisco, CA",
+    "email": "alex.doe@email.com",
+    "socials": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com",
+        "icon": "Github"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://linkedin.com",
+        "icon": "Linkedin"
+      }
+    ],
+    "about": "A passionate and creative full-stack developer with over a decade of experience in building scalable web applications. I specialize in the JavaScript ecosystem, with a strong focus on React, Node.js, and modern cloud architectures. I thrive in collaborative environments and am always eager to learn new technologies."
+  },
+  "sections": {
+    "about": "About",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects"
+  },
+  "experience": [
+    {
+      "role": "Senior Software Engineer",
+      "company": "Tech Solutions Inc.",
+      "period": "2018 - Present",
+      "description": [
+        "Led the development of a high-traffic e-commerce platform using Next.js and TypeScript, improving performance by 40%.",
+        "Designed and implemented a microservices architecture on AWS, enhancing scalability and system resilience.",
+        "Mentored junior developers, conducting code reviews and promoting best practices."
+      ]
+    },
+    {
+      "role": "Full-Stack Developer",
+      "company": "Innovate Co.",
+      "period": "2014 - 2018",
+      "description": [
+        "Developed and maintained client-side applications using React and Redux.",
+        "Built RESTful APIs with Node.js and Express, connecting to MongoDB databases.",
+        "Collaborated with UX/UI designers to create intuitive and visually appealing user interfaces."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Science in Computer Science",
+      "institution": "Stanford University",
+      "period": "2012 - 2014"
+    },
+    {
+      "degree": "Bachelor of Science in Software Engineering",
+      "institution": "University of California, Berkeley",
+      "period": "2008 - 2012"
+    }
+  ],
+  "skills": [
+    { "name": "JavaScript / TypeScript", "level": 95 },
+    { "name": "React / Next.js", "level": 90 },
+    { "name": "Node.js / Express", "level": 85 },
+    { "name": "Python", "level": 75 },
+    { "name": "SQL & NoSQL Databases", "level": 80 },
+    { "name": "Docker & Kubernetes", "level": 70 },
+    { "name": "AWS / Google Cloud", "level": 80 }
+  ],
+  "projects": [
+    {
+      "name": "Project Enigma",
+      "description": "An open-source data visualization tool for analyzing complex datasets. Built with D3.js and React.",
+      "tags": ["React", "D3.js", "Data Visualization"],
+      "link": "https://github.com"
+    },
+    {
+      "name": "Code Collab",
+      "description": "A real-time collaborative coding platform featuring video chat and a shared terminal.",
+      "tags": ["WebRTC", "Node.js", "React", "WebSockets"],
+      "link": "https://github.com"
+    }
+  ]
+}
