@@ -3,6 +3,7 @@
 import { useCV } from "../cv-container";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Progress } from "../ui/progress";
+import { Badge } from "../ui/badge";
 
 export function SkillsSection() {
   const { data } = useCV();
@@ -19,10 +20,9 @@ export function SkillsSection() {
             {skills.map((skill, index) => (
               <div key={index}>
                 <div className="mb-1 flex justify-between items-center">
-                    <span className="text-base font-medium">{skill.name}</span>
-                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                    <span className="text-base font-medium font-body">{skill.name}</span>
                 </div>
-                <Progress value={skill.level} className="h-2" />
+                <Progress value={skill.level} className="h-3" />
               </div>
             ))}
           </div>

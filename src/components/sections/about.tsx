@@ -13,7 +13,7 @@ export function AboutSection() {
           <CardTitle className="font-headline text-2xl text-primary">{sections.about}</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-base leading-relaxed">{personalInfo.about}</p>
+          <p className="text-base leading-relaxed font-body">{personalInfo.about}</p>
         </CardContent>
       </Card>
     </section>

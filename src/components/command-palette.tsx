@@ -29,7 +29,8 @@ import * as LucideIcons from "lucide-react";
 type IconName = keyof typeof LucideIcons;
 
 const DynamicIcon = ({ name }: { name: string }) => {
-    const IconComponent = LucideIcons[name as IconName];
+    const iconName = name.charAt(0).toUpperCase() + name.slice(1) as IconName;
+    const IconComponent = LucideIcons[iconName];
     if (!IconComponent) return <Home className="h-4 w-4" />;
     return <IconComponent className="h-4 w-4 mr-2" />;
 };
@@ -38,7 +39,9 @@ const DynamicIcon = ({ name }: { name: string }) => {
 export function CommandPalette() {
   const [open, setOpen] = useState(false);
   const { setTheme } = useTheme();
-  const { data, lang, setLang } = useCV();
+  const { data, setLang } = useCV();
+  const { sections, personalInfo } = data;
+
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -56,25 +59,25 @@ export function CommandPalette() {
     command();
   };
 
-  const socialCommands = data.personalInfo.socials.map((social) => ({
+  const socialCommands = personalInfo.socials.map((social) => ({
     name: `Visit ${social.name}`,
     icon: <DynamicIcon name={social.icon} />,
     action: () => window.open(social.url, "_blank"),
   }));
 
   const navigationCommands = [
-    { name: data.sections.about, href: "#about", icon: <Home className="mr-2 h-4 w-4" /> },
-    { name: data.sections.experience, href: "#experience", icon: <Briefcase className="mr-2 h-4 w-4" /> },
-    { name: data.sections.education, href: "#education", icon: <GraduationCap className="mr-2 h-4 w-4" /> },
-    { name: data.sections.skills, href: "#skills", icon: <Lightbulb className="mr-2 h-4 w-4" /> },
-    { name: data.sections.projects, href: "#projects", icon: <FolderGit2 className="mr-2 h-4 w-4" /> },
+    { name: sections.about, href: "#about", icon: <Home className="mr-2 h-4 w-4" /> },
+    { name: sections.experience, href: "#experience", icon: <Briefcase className="mr-2 h-4 w-4" /> },
+    { name: sections.education, href: "#education", icon: <GraduationCap className="mr-2 h-4 w-4" /> },
+    { name: sections.skills, href: "#skills", icon: <Lightbulb className="mr-2 h-4 w-4" /> },
+    { name: sections.projects, href: "#projects", icon: <FolderGit2 className="mr-2 h-4 w-4" /> },
   ];
 
   return (
     <>
       <Button
         variant="outline"
-        className="fixed bottom-4 right-4 z-50 shadow-lg"
+        className="fixed bottom-4 right-4 z-50 shadow-lg font-headline"
         onClick={() => setOpen(true)}
       >
         <span className="font-sans">⌘K</span>

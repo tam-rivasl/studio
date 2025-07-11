@@ -16,9 +16,9 @@ export function EducationSection() {
         <CardContent className="space-y-4">
           {education.map((edu, index) => (
             <div key={index}>
-              <p className="text-sm text-muted-foreground">{edu.period}</p>
+              <p className="text-sm text-muted-foreground font-body">{edu.period}</p>
               <h3 className="text-xl font-semibold font-headline">{edu.degree}</h3>
-              <p className="text-md text-accent font-medium">{edu.institution}</p>
+              <p className="text-md text-accent font-medium font-body">{edu.institution}</p>
             </div>
           ))}
         </CardContent>

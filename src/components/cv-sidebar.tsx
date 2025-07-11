@@ -11,29 +11,29 @@ import { cn } from "@/lib/utils";
 type IconName = keyof typeof LucideIcons;
 
 const DynamicIcon = ({ name }: { name: string }) => {
-    const IconComponent = LucideIcons[name as IconName];
+    const iconName = name.charAt(0).toUpperCase() + name.slice(1) as IconName;
+    const IconComponent = LucideIcons[iconName];
     if (!IconComponent) return <Home className="h-4 w-4" />;
     return <IconComponent className="h-4 w-4" />;
 };
 
-
 export function CVSidebar({className}: {className?: string}) {
   const { data } = useCV();
-  const { personalInfo, sections } = data;
+  const { personalInfo } = data;
 
   const navItems = [
-    { name: sections.about, href: "#about", icon: Home },
-    { name: sections.experience, href: "#experience", icon: Briefcase },
-    { name: sections.education, href: "#education", icon: GraduationCap },
-    { name: sections.skills, href: "#skills", icon: Lightbulb },
-    { name: sections.projects, href: "#projects", icon: FolderGit2 },
+    { name: "About", href: "#about", icon: Home },
+    { name: "Experience", href: "#experience", icon: Briefcase },
+    { name: "Education", href: "#education", icon: GraduationCap },
+    { name: "Skills", href: "#skills", icon: Lightbulb },
+    { name: "Projects", href: "#projects", icon: FolderGit2 },
   ];
 
   return (
     <aside className={cn("w-full flex-col border-r bg-card p-6 text-card-foreground lg:w-80 lg:min-h-screen", className)}>
       <div className="flex flex-col items-center text-center">
         <h1 className="text-3xl font-headline text-primary">{personalInfo.name}</h1>
-        <p className="mt-1 text-lg text-muted-foreground">{personalInfo.title}</p>
+        <p className="mt-1 text-lg text-muted-foreground font-body">{personalInfo.title}</p>
         <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin className="h-4 w-4" />
             <span>{personalInfo.location}</span>
@@ -49,7 +49,7 @@ export function CVSidebar({className}: {className?: string}) {
           {navItems.map((item) => (
             <li key={item.name}>
               <a href={item.href}>
-                <Button variant="ghost" className="w-full justify-start gap-3 text-base">
+                <Button variant="ghost" className="w-full justify-start gap-3 text-base font-body">
                   <item.icon className="h-5 w-5 text-accent" />
                   {item.name}
                 </Button>
