@@ -15,7 +15,7 @@ export function ProjectsSection() {
       <h2 className="font-headline text-3xl text-primary mb-6">{sections.projects}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, index) => (
-          <Card key={index} className="flex flex-col">
+          <Card key={index} className="flex flex-col transition-transform duration-300 hover:scale-105 hover:shadow-xl">
             <CardHeader>
               <CardTitle className="font-headline text-xl">{project.name}</CardTitle>
               <CardDescription>{project.description}</CardDescription>

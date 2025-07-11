@@ -53,7 +53,7 @@ export function CVContainer({ data: allData }: { data: { en: CVData; es: CVData 
               </SheetContent>
             </Sheet>
           </div>
-          <div className="mx-auto max-w-4xl space-y-12">
+          <div className="mx-auto max-w-4xl space-y-12 animate-fade-in-up">
             <AboutSection />
             <ExperienceSection />
             <EducationSection />
