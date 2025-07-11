@@ -1,7 +1,7 @@
 "use client";
 
 // Importaciones de React, hooks y componentes de la UI.
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useTheme } from "next-themes";
 import {
   CommandDialog,
@@ -11,6 +11,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
+  CommandShortcut,
 } from "@/components/ui/command";
 import { useCV } from "./cv-container";
 import { Button } from "./ui/button";
@@ -86,12 +87,12 @@ export function CommandPalette({className}: {className?: string}) {
 
   /**
    * Función para ejecutar un comando y cerrar la paleta.
-   * @param {() => void} command - La función del comando a ejecutar.
+   * Se usa `useCallback` para memorizar la función y evitar re-renders innecesarios.
    */
-  const runCommand = (command: () => void) => {
+  const runCommand = useCallback((command: () => void) => {
     setOpen(false);
     command();
-  };
+  }, []);
 
   // Genera dinámicamente los comandos para los perfiles sociales.
   const socialCommands = data.basics.profiles.map((social) => ({
@@ -107,6 +108,30 @@ export function CommandPalette({className}: {className?: string}) {
     { name: "Education", href: "#education", icon: <GraduationCap className="mr-2 h-4 w-4" /> },
     { name: "Skills", href: "#skills", icon: <Lightbulb className="mr-2 h-4 w-4" /> },
     { name: "Projects", href: "#projects", icon: <FolderGit2 className="mr-2 h-4 w-4" /> },
+  ];
+  
+  // Define los comandos de acciones con sus atajos de teclado.
+  const actionCommands = [
+    {
+      name: "Print CV",
+      icon: <Printer className="mr-2 h-4 w-4" />,
+      action: () => window.print(),
+      shortcut: "⌘P"
+    },
+    ...socialCommands,
+  ];
+
+  // Define los comandos de cambio de tema con sus atajos de teclado.
+  const themeCommands = [
+      { name: "Light", action: () => setTheme("light"), icon: <Sun className="mr-2 h-4 w-4" />, shortcut: "T L" },
+      { name: "Dark", action: () => setTheme("dark"), icon: <Moon className="mr-2 h-4 w-4" />, shortcut: "T D" },
+      { name: "System", action: () => setTheme("system"), icon: <Laptop className="mr-2 h-4 w-4" />, shortcut: "T S" }
+  ];
+
+  // Define los comandos de cambio de idioma.
+  const languageCommands = [
+      { name: "English", action: () => setLang("en"), shortcut: "L E" },
+      { name: "Español", action: () => setLang("es"), shortcut: "L S" }
   ];
 
   return (
@@ -137,44 +162,39 @@ export function CommandPalette({className}: {className?: string}) {
           <CommandSeparator />
           {/* Grupo de comandos de acciones. */}
           <CommandGroup heading="Actions">
-            <CommandItem onSelect={() => runCommand(() => window.print())}>
-              <Printer className="mr-2 h-4 w-4" />
-              <span>Print CV</span>
-            </CommandItem>
-            {socialCommands.map((cmd) => (
+            {actionCommands.map((cmd) => (
                 <CommandItem key={cmd.name} onSelect={() => runCommand(cmd.action)}>
                     {cmd.icon}
                     <span>{cmd.name}</span>
+                    {cmd.shortcut && (
+                      <CommandShortcut>
+                        {cmd.shortcut.replace("⌘", isMac ? "⌘" : "Ctrl")}
+                      </CommandShortcut>
+                    )}
                 </CommandItem>
             ))}
           </CommandGroup>
           <CommandSeparator />
           {/* Grupo de comandos para cambiar el tema. */}
           <CommandGroup heading="Theme">
-            <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
-              <Sun className="mr-2 h-4 w-4" />
-              <span>Light</span>
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setTheme("dark"))}>
-              <Moon className="mr-2 h-4 w-4" />
-              <span>Dark</span>
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setTheme("system"))}>
-              <Laptop className="mr-2 h-4 w-4" />
-              <span>System</span>
-            </CommandItem>
+            {themeCommands.map((cmd) => (
+                <CommandItem key={cmd.name} onSelect={() => runCommand(cmd.action)}>
+                    {cmd.icon}
+                    <span>{cmd.name}</span>
+                    {cmd.shortcut && <CommandShortcut>{cmd.shortcut}</CommandShortcut>}
+                </CommandItem>
+            ))}
           </CommandGroup>
            <CommandSeparator />
           {/* Grupo de comandos para cambiar el idioma. */}
           <CommandGroup heading="Language">
-            <CommandItem onSelect={() => runCommand(() => setLang("en"))}>
-              <span className="mr-2">EN</span>
-              <span>English</span>
-            </CommandItem>
-            <CommandItem onSelect={() => runCommand(() => setLang("es"))}>
-              <span className="mr-2">ES</span>
-              <span>Español</span>
-            </CommandItem>
+            {languageCommands.map((cmd) => (
+              <CommandItem key={cmd.name} onSelect={() => runCommand(cmd.action)}>
+                <span className="mr-2 w-4 text-center">{cmd.name === 'English' ? 'EN' : 'ES'}</span>
+                <span>{cmd.name}</span>
+                {cmd.shortcut && <CommandShortcut>{cmd.shortcut}</CommandShortcut>}
+              </CommandItem>
+            ))}
           </CommandGroup>
         </CommandList>
       </CommandDialog>
