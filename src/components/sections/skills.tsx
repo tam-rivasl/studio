@@ -16,7 +16,7 @@ export function SkillsSection() {
       <h2 className="text-2xl font-bold mb-6">Skills</h2>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
-          <Badge key={index} variant="secondary" className="text-sm font-medium bg-green-100 text-green-800 hover:bg-green-200">
+          <Badge key={index} variant="secondary" className="text-sm font-medium">
             {skill.name}
           </Badge>
         ))}

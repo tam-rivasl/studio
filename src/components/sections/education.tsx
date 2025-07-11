@@ -24,13 +24,13 @@ export function EducationSection() {
           <div key={index}>
              <div className="flex justify-between items-baseline">
                 <h3 className="text-lg font-semibold">{edu.area}</h3>
-                 <p className="text-sm text-gray-500">{formatDate(edu.startDate)} - {formatDate(edu.endDate)}</p>
+                 <p className="text-sm text-muted-foreground">{formatDate(edu.startDate)} - {formatDate(edu.endDate)}</p>
             </div>
-            <div className="flex items-center gap-2 text-md text-gray-600">
+            <div className="flex items-center gap-2 text-md text-muted-foreground">
                 <Building className="h-4 w-4" />
                 <a href={edu.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{edu.institution}</a>
             </div>
-            <p className="text-sm text-gray-500 mt-1">{edu.studyType}</p>
+            <p className="text-sm text-muted-foreground mt-1">{edu.studyType}</p>
           </div>
         ))}
       </div>

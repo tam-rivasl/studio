@@ -41,15 +41,15 @@ export function CVSidebar({className}: {className?: string}) {
           className="rounded-lg shadow-lg mb-4"
         />
         <h1 className="text-3xl font-bold">{basics.name}</h1>
-        <p className="text-lg text-gray-600">{basics.label}</p>
-        <div className="mt-4 flex items-center gap-2 text-sm text-gray-500">
+        <p className="text-lg text-primary">{basics.label}</p>
+        <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin className="h-4 w-4" />
             <span>{basics.location.city}, {basics.location.region}</span>
         </div>
-        <div className="mt-2 space-y-1 text-sm text-gray-500">
+        <div className="mt-2 space-y-1 text-sm text-muted-foreground">
              <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                <a href={`mailto:${basics.email}`} className="hover:text-black transition-colors">{basics.email}</a>
+                <a href={`mailto:${basics.email}`} className="hover:text-foreground transition-colors">{basics.email}</a>
             </div>
              <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
@@ -58,7 +58,7 @@ export function CVSidebar({className}: {className?: string}) {
              <div className="flex justify-start gap-2 pt-2">
                 {basics.profiles.map(social => (
                     <a href={social.url} key={social.network} target="_blank" rel="noopener noreferrer" aria-label={social.network}>
-                        <Button variant="ghost" size="icon" className="text-gray-500 hover:text-black">
+                        <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground">
                             <DynamicIcon name={social.network}/>
                         </Button>
                     </a>

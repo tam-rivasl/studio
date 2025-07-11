@@ -8,7 +8,7 @@ export function AboutSection() {
   return (
     <section id="about" className="scroll-mt-20">
        <h2 className="text-2xl font-bold mb-4">About</h2>
-      <p className="text-base leading-relaxed text-gray-700">{basics.summary}</p>
+      <p className="text-base leading-relaxed text-muted-foreground">{basics.summary}</p>
     </section>
   );
 }
