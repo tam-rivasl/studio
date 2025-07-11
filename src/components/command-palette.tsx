@@ -25,23 +25,23 @@ import {
   Laptop,
 } from "lucide-react";
 import * as LucideIcons from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type IconName = keyof typeof LucideIcons;
 
 const DynamicIcon = ({ name }: { name: string }) => {
-    const iconName = name.charAt(0).toUpperCase() + name.slice(1) as IconName;
+    const capitalized = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+    const iconName = capitalized as IconName;
     const IconComponent = LucideIcons[iconName];
     if (!IconComponent) return <Home className="h-4 w-4" />;
-    return <IconComponent className="h-4 w-4 mr-2" />;
+    return <IconComponent className="h-4 w-4" />;
 };
 
 
-export function CommandPalette() {
+export function CommandPalette({className}: {className?: string}) {
   const [open, setOpen] = useState(false);
   const { setTheme } = useTheme();
   const { data, setLang } = useCV();
-  const { sections, personalInfo } = data;
-
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -59,28 +59,28 @@ export function CommandPalette() {
     command();
   };
 
-  const socialCommands = personalInfo.socials.map((social) => ({
-    name: `Visit ${social.name}`,
-    icon: <DynamicIcon name={social.icon} />,
+  const socialCommands = data.basics.profiles.map((social) => ({
+    name: `Visit ${social.network}`,
+    icon: <DynamicIcon name={social.network} />,
     action: () => window.open(social.url, "_blank"),
   }));
 
   const navigationCommands = [
-    { name: sections.about, href: "#about", icon: <Home className="mr-2 h-4 w-4" /> },
-    { name: sections.experience, href: "#experience", icon: <Briefcase className="mr-2 h-4 w-4" /> },
-    { name: sections.education, href: "#education", icon: <GraduationCap className="mr-2 h-4 w-4" /> },
-    { name: sections.skills, href: "#skills", icon: <Lightbulb className="mr-2 h-4 w-4" /> },
-    { name: sections.projects, href: "#projects", icon: <FolderGit2 className="mr-2 h-4 w-4" /> },
+    { name: "About", href: "#about", icon: <Home className="mr-2 h-4 w-4" /> },
+    { name: "Experience", href: "#experience", icon: <Briefcase className="mr-2 h-4 w-4" /> },
+    { name: "Education", href: "#education", icon: <GraduationCap className="mr-2 h-4 w-4" /> },
+    { name: "Skills", href: "#skills", icon: <Lightbulb className="mr-2 h-4 w-4" /> },
+    { name: "Projects", href: "#projects", icon: <FolderGit2 className="mr-2 h-4 w-4" /> },
   ];
 
   return (
     <>
       <Button
         variant="outline"
-        className="fixed bottom-4 right-4 z-50 shadow-lg font-headline"
+        className={cn("fixed bottom-4 right-4 z-50 shadow-lg", className)}
         onClick={() => setOpen(true)}
       >
-        <span className="font-sans">⌘K</span>
+        <span className="font-sans text-xs">⌘K</span>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />

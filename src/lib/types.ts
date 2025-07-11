@@ -1,54 +1,90 @@
-export interface Social {
-  name: string;
+export interface Profile {
+  network: string;
+  username: string;
   url: string;
-  icon: string;
 }
 
-export interface PersonalInfo {
+export interface Location {
+  address: string;
+  postalCode: string;
+  city: string;
+  countryCode: string;
+  region: string;
+}
+
+export interface Basics {
   name: string;
-  title: string;
-  location: string;
+  label: string;
+  image: string;
   email: string;
-  socials: Social[];
-  about: string;
+  phone: string;
+  url: string;
+  summary: string;
+  location: Location;
+  profiles: Profile[];
 }
 
-export interface Experience {
-  role: string;
-  company: string;
-  period: string;
-  description: string[];
+export interface Work {
+  name: string;
+  position: string;
+  location_type: string;
+  location: string;
+  url: string;
+  startDate: string;
+  endDate: string | null;
+  summary: string;
+  highlights: string[];
+  responsibilities: string[];
+  achievements: string[];
+  skills: string[];
 }
 
 export interface Education {
-  degree: string;
   institution: string;
-  period: string;
+  url: string;
+  area: string;
+  studyType: string;
+  startDate: string;
+  endDate: string;
 }
 
 export interface Skill {
   name: string;
-  level: number;
+  level: string;
+  keywords: string[];
+}
+
+export interface Language {
+  language: string;
+  fluency: string;
+}
+
+export interface Interest {
+  name: string;
+  keywords: string[];
+}
+
+export interface Reference {
+  name: string;
+  reference: string;
 }
 
 export interface Project {
   name: string;
+  isActive: boolean;
   description: string;
-  tags: string[];
-  link: string;
+  highlights: string[];
+  url: string;
+  github?: string;
 }
 
 export interface CVData {
-  personalInfo: PersonalInfo;
-  sections: {
-    about: string;
-    experience: string;
-    education: string;
-    skills: string;
-    projects: string;
-  };
-  experience: Experience[];
+  basics: Basics;
+  work: Work[];
   education: Education[];
   skills: Skill[];
+  languages: Language[];
+  interests: Interest[];
+  references: Reference[];
   projects: Project[];
 }

@@ -9,9 +9,6 @@ import { EducationSection } from "@/components/sections/education";
 import { SkillsSection } from "@/components/sections/skills";
 import { ProjectsSection } from "@/components/sections/projects";
 import { CommandPalette } from "./command-palette";
-import { Button } from "./ui/button";
-import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 type Language = "en" | "es";
 
@@ -37,32 +34,18 @@ export function CVContainer({ data: allData }: { data: { en: CVData; es: CVData 
 
   return (
     <CVContext.Provider value={{ lang, setLang, data }}>
-      <div className="flex min-h-screen w-full bg-background">
-        <CVSidebar className="hidden lg:flex" />
-        <main className="flex-1 p-4 lg:p-8">
-          <div className="lg:hidden mb-4 flex items-center justify-between">
-             <h1 className="text-2xl font-headline text-primary">{data.personalInfo.name}</h1>
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] p-0">
-                <CVSidebar />
-              </SheetContent>
-            </Sheet>
-          </div>
-          <div className="mx-auto max-w-4xl space-y-12 animate-fade-in-up">
-            <AboutSection />
+       <div className="min-h-screen bg-[#F0F5F0] p-4 sm:p-8 md:p-12">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <CVSidebar />
+          <main className="lg:col-span-2 space-y-12">
             <ExperienceSection />
             <EducationSection />
             <SkillsSection />
             <ProjectsSection />
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
-      <CommandPalette />
+      <CommandPalette className="hidden" />
     </CVContext.Provider>
   );
 }

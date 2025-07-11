@@ -7,7 +7,7 @@ export function LanguageToggle() {
   const { lang, setLang } = useCV();
 
   return (
-    <div className="flex items-center rounded-md border p-1">
+    <div className="flex items-center rounded-md border bg-white p-1">
       <Button
         variant={lang === "en" ? "secondary" : "ghost"}
         size="sm"
