@@ -1,85 +1,118 @@
 {
   "personalInfo": {
-    "name": "Alex Doe",
-    "title": "Senior Full-Stack Engineer",
-    "location": "San Francisco, CA",
-    "email": "alex.doe@email.com",
+    "name": "Tamara Rivas",
+    "title": "Back-End Developer",
+    "location": "Chillan, Chile",
+    "email": "tam.trivas@gmail.com",
     "socials": [
       {
-        "name": "GitHub",
-        "url": "https://github.com",
-        "icon": "Github"
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/tamara-rivas-backend/",
+        "icon": "Linkedin"
       },
       {
-        "name": "LinkedIn",
-        "url": "https://linkedin.com",
-        "icon": "Linkedin"
+        "name": "GitHub",
+        "url": "https://github.com/tam-rivasl",
+        "icon": "Github"
       }
     ],
-    "about": "A passionate and creative full-stack developer with over a decade of experience in building scalable web applications. I specialize in the JavaScript ecosystem, with a strong focus on React, Node.js, and modern cloud architectures. I thrive in collaborative environments and am always eager to learn new technologies."
+    "about": "I am a technology-driven professional with experience in frontend development using React and backend frameworks like NestJs and Spring Boot. I excel in solving complex challenges with creativity and determination. Constantly expanding my skills, I’m also passionate about exploring emerging fields like machine learning and data science. My goal is to contribute to innovative projects in a collaborative and adaptable environment."
   },
   "sections": {
     "about": "About",
-    "experience": "Experience",
+    "experience": "Work Experience",
     "education": "Education",
     "skills": "Skills",
     "projects": "Projects"
   },
   "experience": [
     {
-      "role": "Senior Software Engineer",
-      "company": "Tech Solutions Inc.",
-      "period": "2018 - Present",
+      "role": "Full Stack Developer / Backend Developer",
+      "company": "Evolvetech Spa (Formerly Stratech)",
+      "period": "May 2023 - Present",
       "description": [
-        "Led the development of a high-traffic e-commerce platform using Next.js and TypeScript, improving performance by 40%.",
-        "Designed and implemented a microservices architecture on AWS, enhancing scalability and system resilience.",
-        "Mentored junior developers, conducting code reviews and promoting best practices."
+        "Designed, developed, and maintained backend systems using microservices architecture.",
+        "Collaborated with cross-functional teams to integrate third-party services and ensure regulatory compliance.",
+        "Used frontend technologies to implement and improve user-facing features.",
+        "Followed agile methodologies (Scrum) for project management and task prioritization.",
+        "Ensured smooth operation and scalability of backend services through proactive monitoring and maintenance.",
+        "Led the integration of Betby, enabling seamless sportsbook operations, including bet placement and result tracking.",
+        "Integrated Sumsub for user verification across multiple countries, ensuring compliance with international regulatory standards.",
+        "Played a pivotal role in resolving blockers for the development team, leading to faster project completion and improved workflow.",
+        "Contributed to the scalability of backend systems by maintaining and expanding microservices using Nest.js and Spring Boot."
       ]
     },
     {
-      "role": "Full-Stack Developer",
-      "company": "Innovate Co.",
-      "period": "2014 - 2018",
+      "role": "Full Stack Developer",
+      "company": "Stratech",
+      "period": "Jul 2022 - May 2023",
       "description": [
-        "Developed and maintained client-side applications using React and Redux.",
-        "Built RESTful APIs with Node.js and Express, connecting to MongoDB databases.",
-        "Collaborated with UX/UI designers to create intuitive and visually appealing user interfaces."
+        "Worked as part of a contingency team, resolving production issues and managing urgent tickets to ensure smooth casino platform operations.",
+        "Developed and maintained frontend features using Next.js, React.js, and Ant Design.",
+        "Designed and developed a business dashboard with Retool, incorporating permission hierarchies.",
+        "Implemented leaderboards using Strapi to boost user engagement and platform interaction.",
+        "Participated in agile practices, using Scrum methodologies and tools like Jira for task tracking.",
+        "Integrated the FreeSpins feature for casino games, increasing user engagement and retention.",
+        "Resolved critical production issues in a high-pressure environment, ensuring platform stability and minimizing downtime.",
+        "Designed and developed a business dashboard with role-based permission control using Retool, streamlining internal operations.",
+        "Implemented leaderboards using Strapi, which led to a noticeable increase in user interaction within the casino platform.",
+        "Enhanced the frontend experience by resolving issues with Next.js and React.js, improving overall user interface performance."
       ]
     }
   ],
   "education": [
     {
-      "degree": "Master of Science in Computer Science",
-      "institution": "Stanford University",
-      "period": "2012 - 2014"
-    },
-    {
-      "degree": "Bachelor of Science in Software Engineering",
-      "institution": "University of California, Berkeley",
-      "period": "2008 - 2012"
+      "degree": "Computational Programmer Analyst",
+      "institution": "Duoc Uc University",
+      "period": "2021 - 2024"
     }
   ],
   "skills": [
-    { "name": "JavaScript / TypeScript", "level": 95 },
-    { "name": "React / Next.js", "level": 90 },
-    { "name": "Node.js / Express", "level": 85 },
-    { "name": "Python", "level": 75 },
-    { "name": "SQL & NoSQL Databases", "level": 80 },
-    { "name": "Docker & Kubernetes", "level": 70 },
-    { "name": "AWS / Google Cloud", "level": 80 }
+    { "name": "Nest.js", "level": 85 },
+    { "name": "Spring Boot", "level": 80 },
+    { "name": "PostgreSQL", "level": 75 },
+    { "name": "Docker", "level": 70 },
+    { "name": "Next.js", "level": 75 },
+    { "name": "React.js", "level": 80 },
+    { "name": "TypeScript", "level": 85 },
+    { "name": "JavaScript", "level": 90 }
   ],
   "projects": [
     {
-      "name": "Project Enigma",
-      "description": "An open-source data visualization tool for analyzing complex datasets. Built with D3.js and React.",
-      "tags": ["React", "D3.js", "Data Visualization"],
-      "link": "https://github.com"
+      "name": "Personal Portfolio",
+      "description": "A personal portfolio website to showcase my projects and skills.",
+      "tags": [
+        "React",
+        "Tailwind CSS"
+      ],
+      "link": "https://johndoe.dev"
     },
     {
-      "name": "Code Collab",
-      "description": "A real-time collaborative coding platform featuring video chat and a shared terminal.",
-      "tags": ["WebRTC", "Node.js", "React", "WebSockets"],
-      "link": "https://github.com"
+      "name": "Weather App",
+      "description": "A web application that provides weather information for any location.",
+      "tags": [
+        "JavaScript",
+        "OpenWeatherMap API"
+      ],
+      "link": "https://weatherapp.com"
+    },
+    {
+      "name": "Task Manager",
+      "description": "A simple task management app to keep track of daily tasks.",
+      "tags": [
+        "Node.js",
+        "MongoDB"
+      ],
+      "link": "https://taskmanager.com"
+    },
+    {
+      "name": "E-commerce Site",
+      "description": "An online store built with Next.js and Stripe for payment processing.",
+      "tags": [
+        "Next.js",
+        "Stripe"
+      ],
+      "link": "https://ecommerce.com"
     }
   ]
 }

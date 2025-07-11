@@ -10,12 +10,16 @@ export function ProjectsSection() {
   const { data } = useCV();
   const { projects, sections } = data;
 
+  if (!projects || projects.length === 0) {
+    return null;
+  }
+
   return (
     <section id="projects" className="scroll-mt-20">
       <h2 className="font-headline text-3xl text-primary mb-6">{sections.projects}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, index) => (
-          <Card key={index} className="flex flex-col transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <Card key={index} className="flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
             <CardHeader>
               <CardTitle className="font-headline text-xl">{project.name}</CardTitle>
               <CardDescription>{project.description}</CardDescription>
