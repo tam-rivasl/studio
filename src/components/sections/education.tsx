@@ -31,7 +31,7 @@ export function EducationSection() {
   return (
     // Define la sección con un id para la navegación y un margen para el scroll.
     <section id="education" className="scroll-mt-20">
-      <h2 className="text-2xl font-bold mb-6">Education</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">Education</h2>
       <div className="space-y-6">
         {/* Itera sobre cada elemento de educación y lo muestra. */}
         {education.map((edu, index) => (
@@ -43,7 +43,7 @@ export function EducationSection() {
             </div>
             {/* Contenedor para la institución. */}
             <div className="flex items-center gap-2 text-md text-muted-foreground">
-                <Building className="h-4 w-4" />
+                <Building className="h-4 w-4 text-primary" />
                 <a href={edu.url} target="_blank" rel="noopener noreferrer" className="hover:underline">{edu.institution}</a>
             </div>
             {/* Tipo de estudio. */}

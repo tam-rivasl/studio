@@ -69,7 +69,8 @@ export interface Education {
 export interface Skill {
   name: string; // Nombre de la habilidad (ej. "TypeScript").
   level: string; // Nivel de dominio (ej. "Intermediate").
-  keywords: string[]; // Palabras clave relacionadas (puede no usarse).
+  keywords?: string[]; // Palabras clave relacionadas (opcional).
+  icon?: string; // Nombre del ícono de Lucide (opcional).
 }
 
 /**

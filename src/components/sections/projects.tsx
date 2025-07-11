@@ -24,12 +24,12 @@ export function ProjectsSection() {
   return (
     // Define la sección con un id para navegación y un margen para el anclaje del scroll.
     <section id="projects" className="scroll-mt-20">
-      <h2 className="text-2xl font-bold mb-6">Projects</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">Projects</h2>
       {/* Grid para mostrar los proyectos en columnas. */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Filtra los proyectos para mostrar solo los que están activos y los mapea a componentes Card. */}
         {projects.filter(p=>p.isActive).map((project, index) => (
-          <Card key={index} className="flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
+          <Card key={index} className="flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl dark:bg-card">
             {/* Cabecera de la tarjeta con el título y la descripción del proyecto. */}
             <CardHeader>
               <CardTitle className="text-xl font-semibold">{project.name}</CardTitle>

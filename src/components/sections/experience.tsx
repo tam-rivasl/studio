@@ -45,7 +45,7 @@ export function ExperienceSection() {
   return (
     // Define la sección con un id para navegación y un margen para el anclaje del scroll.
     <section id="experience" className="scroll-mt-20">
-      <h2 className="text-2xl font-bold mb-6">Experience</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">Experience</h2>
       <div className="space-y-8">
         {/* Itera sobre cada experiencia laboral y la renderiza. */}
         {work.map((job, index) => {
@@ -58,9 +58,9 @@ export function ExperienceSection() {
 
           return (
             // Contenedor de cada item de experiencia con un estilo de línea de tiempo.
-            <div key={index} className="relative pl-8 before:absolute before:left-2 before:top-2 before:h-full before:w-0.5 before:bg-gray-200 dark:before:bg-gray-700">
+            <div key={index} className="relative pl-8 before:absolute before:left-2 before:top-2 before:h-full before:w-0.5 before:bg-border">
               {/* Círculo en la línea de tiempo que marca el inicio del item. */}
-              <div className="absolute left-0 top-2 h-4 w-4 rounded-full bg-primary border-2 border-white dark:border-background"></div>
+              <div className="absolute left-0 top-2 h-4 w-4 rounded-full bg-primary border-2 border-background"></div>
               
               {/* Fechas de inicio y fin. */}
               <p className="text-sm text-muted-foreground mb-1">{formatDate(job.startDate)} - {formatDate(job.endDate)}</p>
@@ -72,7 +72,7 @@ export function ExperienceSection() {
               {/* Renderizado condicional del resumen del trabajo. */}
               {job.summary && (
                   <>
-                      <h4 className="font-semibold text-md mb-1">Summary:</h4>
+                      <h4 className="font-semibold text-md mb-1 text-primary/80">Summary:</h4>
                       <p className="text-base text-muted-foreground mb-4">{job.summary}</p>
                   </>
               )}
@@ -80,7 +80,7 @@ export function ExperienceSection() {
               {/* Renderizado condicional de las responsabilidades. */}
               {responsibilities.length > 0 && (
                   <>
-                      <h4 className="font-semibold text-md mb-1">Responsibilities:</h4>
+                      <h4 className="font-semibold text-md mb-1 text-primary/80">Responsibilities:</h4>
                       <ul className="list-disc list-inside space-y-1 text-base text-muted-foreground mb-4">
                           {(isExpanded ? responsibilities : responsibilities.slice(0, PREVIEW_LIMIT)).map((desc, i) => <li key={i}>{desc}</li>)}
                       </ul>
@@ -90,7 +90,7 @@ export function ExperienceSection() {
                {/* Renderizado condicional de los logros. */}
                {achievements.length > 0 && (
                   <>
-                      <h4 className="font-semibold text-md mb-1">Achievements:</h4>
+                      <h4 className="font-semibold text-md mb-1 text-primary/80">Achievements:</h4>
                       <ul className="list-disc list-inside space-y-1 text-base text-muted-foreground">
                           {(isExpanded ? achievements : achievements.slice(0, PREVIEW_LIMIT)).map((desc, i) => <li key={i}>{desc}</li>)}
                       </ul>

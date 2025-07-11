@@ -102,149 +102,22 @@
             }
           ],
           "skills": [
-            {
-              "name": "Gitlab",
-              "level": "Intermediate",
-              "keywords": [
-                "Version Control",
-                "Collaboration",
-                "Source Code"
-              ]
-            },
-            {
-              "name": "HTML",
-              "level": "Intermediate",
-              "keywords": [
-                "Web Development",
-                "Frontend"
-              ]
-            },
-            {
-              "name": "CSS",
-              "level": "Intermediate",
-              "keywords": [
-                "Web Development",
-                "Frontend",
-                "Responsive Design"
-              ]
-            },
-            {
-              "name": "JavaScript",
-              "level": "Intermediate",
-              "keywords": [
-                "Web Development",
-                "Frontend",
-                "Backend",
-                "Fullstack"
-              ]
-            },
-            {
-              "name": "TypeScript",
-              "level": "Intermediate",
-              "keywords": [
-                "Web Development",
-                "Frontend",
-                "Backend",
-                "JavaScript Superset"
-              ]
-            },
-            {
-              "name": "Node",
-              "level": "Intermediate",
-              "keywords": [
-                "Web Development",
-                "Backend",
-                "JavaScript",
-                "Server"
-              ]
-            },
-            {
-              "name": "MySQL",
-              "level": "Intermediate",
-              "keywords": [
-                "Databases",
-                "SQL",
-                "Data Storage",
-                "Backend"
-              ]
-            },
-            {
-              "name": "Git",
-              "level": "Intermediate",
-              "keywords": [
-                "Version Control",
-                "Collaboration",
-                "Source Code"
-              ]
-            },
-            {
-              "name": "GitHub",
-              "level": "Intermediate",
-              "keywords": [
-                "Version Control",
-                "Collaboration",
-                "Source Code",
-                "Git"
-              ]
-            },
-            {
-              "name": "Next.js",
-              "level": "Beginner",
-              "keywords": [
-                "Web Development",
-                "Frontend",
-                "React Framework",
-                "SSR",
-                "Static Generation"
-              ]
-            },
-            {
-              "name": "React",
-              "level": "Intermediate",
-              "keywords": [
-                "Web Development",
-                "Frontend",
-                "JavaScript Library",
-                "UI"
-              ]
-            },
-            {
-              "name": "Docker",
-              "level": "Intermediate",
-              "keywords": [
-                "Containers"
-              ]
-            },
-            {
-              "name": "Python",
-              "level": "Intermediate",
-              "keywords": [
-                "Backend"
-              ]
-            },
-            {
-              "name": "Java",
-              "level": "Intermediate",
-              "keywords": [
-                "Backend"
-              ]
-            },
-            {
-              "name": "Spring Boot",
-              "level": "Intermediate",
-              "keywords": [
-                "Backend",
-                "Java"
-              ]
-            },
-            {
-              "name": "Nest.js",
-              "level": "Intermediate",
-              "keywords": [
-                "Backend",
-                "TypeScript"
-              ]
-            }
+            { "name": "Gitlab", "level": "Intermediate", "icon": "Gitlab" },
+            { "name": "HTML", "level": "Intermediate", "icon": "FileCode" },
+            { "name": "CSS", "level": "Intermediate", "icon": "FileCode" },
+            { "name": "JavaScript", "level": "Intermediate", "icon": "FileJson2" },
+            { "name": "TypeScript", "level": "Intermediate", "icon": "FileJson2" },
+            { "name": "Node.js", "level": "Intermediate", "icon": "FileCode" },
+            { "name": "MySQL", "level": "Intermediate", "icon": "Database" },
+            { "name": "Git", "level": "Intermediate", "icon": "GitBranch" },
+            { "name": "GitHub", "level": "Intermediate", "icon": "Github" },
+            { "name": "Next.js", "level": "Beginner", "icon": "FileCode" },
+            { "name": "React", "level": "Intermediate", "icon": "React" },
+            { "name": "Docker", "level": "Intermediate", "icon": "Docker" },
+            { "name": "Python", "level": "Intermediate", "icon": "FileCode" },
+            { "name": "Java", "level": "Intermediate", "icon": "FileCode" },
+            { "name": "Spring Boot", "level": "Intermediate", "icon": "FileCode" },
+            { "name": "Nest.js", "level": "Intermediate", "icon": "FileCode" }
           ],
           "languages": [
             {
