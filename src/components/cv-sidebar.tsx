@@ -3,7 +3,7 @@
 
 // Importaciones de Next.js, React, hooks y componentes.
 import Image from "next/image";
-import { Mail, Phone, MapPin, Download, Briefcase, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { useCV } from "./cv-container";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -11,19 +11,8 @@ import { AboutSection } from "./sections/about";
 import { LanguageToggle } from "./language-toggle";
 import { ThemeToggle } from "./theme-toggle";
 import { CommandPalette } from "./command-palette";
-
-/**
- * Componente que renderiza un ícono de Lucide dinámicamente.
- * @param {object} props - Propiedades del componente.
- * @param {string} props.name - El nombre del ícono a renderizar.
- * @returns {JSX.Element} El componente del ícono o un ícono por defecto.
- */
-const DynamicIcon = ({ name }: { name: string }) => {
-    // Maneja casos especiales o devuelve un ícono de enlace por defecto si no se encuentra.
-    if (name.toLowerCase() === 'linkedin') return <Linkedin className="h-4 w-4" />;
-    if (name.toLowerCase() === 'github') return <Github className="h-4 w-4" />;
-    return <Briefcase className="h-4 w-4" />;
-};
+import { useToast } from "@/hooks/use-toast";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 
 /**
@@ -36,6 +25,7 @@ const DynamicIcon = ({ name }: { name: string }) => {
 export function CVSidebar({className}: {className?: string}) {
   // Obtiene los datos del CV del contexto.
   const { data } = useCV();
+  const { toast } = useToast();
 
   // Si no hay datos, no renderiza nada para evitar errores.
   if (!data || !data.basics) {
@@ -43,6 +33,37 @@ export function CVSidebar({className}: {className?: string}) {
   }
 
   const { basics } = data;
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(basics.phone);
+    toast({
+      title: "Copiado!",
+      description: "Número de teléfono copiado al portapapeles.",
+    });
+  };
+
+  const contactItems = [
+    {
+      label: "Email",
+      value: basics.email,
+      href: `mailto:${basics.email}`,
+      icon: <Mail className="h-4 w-4" />,
+      action: () => {}
+    },
+    {
+      label: "Phone",
+      value: basics.phone,
+      icon: <Phone className="h-4 w-4" />,
+      action: handleCopyPhone,
+    },
+    ...basics.profiles.map(profile => ({
+      label: profile.network,
+      value: profile.url,
+      href: profile.url,
+      icon: profile.network.toLowerCase() === 'linkedin' ? <Linkedin className="h-4 w-4" /> : <Github className="h-4 w-4" />,
+      action: () => {}
+    }))
+  ];
 
   return (
     // Contenedor de la barra lateral con posición pegajosa en pantallas grandes.
@@ -61,24 +82,48 @@ export function CVSidebar({className}: {className?: string}) {
         <h1 className="text-3xl font-bold">{basics.name}</h1>
         <p className="text-xl text-primary font-body">{basics.label}</p>
         
-        {/* Información de contacto */}
-        <div className="mt-4 space-y-2 text-sm text-muted-foreground font-body">
-            <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                <span>{basics.location.city}, {basics.location.region}</span>
-            </div>
-             <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                <a href={`mailto:${basics.email}`} className="hover:text-foreground transition-colors">{basics.email}</a>
-            </div>
-             <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
-                <span>{basics.phone}</span>
-            </div>
+        {/* Información de ubicación */}
+        <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground font-body">
+            <MapPin className="h-4 w-4" />
+            <span>{basics.location.city}, {basics.location.region}</span>
         </div>
 
+        {/* Iconos de contacto */}
+        <TooltipProvider>
+          <div className="flex items-center gap-3 mt-4">
+            {contactItems.map(item => (
+               <Tooltip key={item.label}>
+                <TooltipTrigger asChild>
+                  {item.href ? (
+                    <a 
+                      href={item.href} 
+                      target={item.href.startsWith('http') ? '_blank' : '_self'} 
+                      rel="noopener noreferrer" 
+                      aria-label={`Contact via ${item.label}`}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {item.icon}
+                    </a>
+                  ) : (
+                    <button 
+                      onClick={item.action} 
+                      aria-label={`Copy ${item.label}`}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {item.icon}
+                    </button>
+                  )}
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{item.label === "Phone" ? "Copiar teléfono" : (item.href ? `Visitar ${item.label}`: item.label)}</p>
+                </TooltipContent>
+              </Tooltip>
+            ))}
+          </div>
+        </TooltipProvider>
+
         {/* Controles de la aplicación */}
-        <div className="flex items-center gap-2 mt-4">
+        <div className="flex items-center gap-2 mt-6">
           <LanguageToggle />
           <ThemeToggle />
           <CommandPalette />
@@ -87,18 +132,6 @@ export function CVSidebar({className}: {className?: string}) {
       
       {/* Sección "Sobre mí" */}
       <AboutSection />
-
-      {/* Perfiles sociales */}
-      <div className="space-y-2">
-        <h2 className="text-xl font-bold font-display">Social</h2>
-        {basics.profiles.map(social => (
-            <a href={social.url} key={social.network} target="_blank" rel="noopener noreferrer" aria-label={social.network} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-body">
-                <DynamicIcon name={social.network}/>
-                <span>{social.network}</span>
-            </a>
-        ))}
-      </div>
     </aside>
   );
 }
-
