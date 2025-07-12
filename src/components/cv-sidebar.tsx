@@ -37,8 +37,8 @@ export function CVSidebar({className}: {className?: string}) {
   const handleCopyPhone = () => {
     navigator.clipboard.writeText(basics.phone);
     toast({
-      title: "Copiado!",
-      description: "Número de teléfono copiado al portapapeles.",
+      title: "¡Copiado!",
+      description: `El número ${basics.phone} ha sido copiado.`,
     });
   };
 
