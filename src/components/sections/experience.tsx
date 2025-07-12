@@ -73,7 +73,7 @@ export function ExperienceSection() {
               {job.summary && (
                   <>
                       <h4 className="font-semibold text-md mb-1 text-primary/80">Summary:</h4>
-                      <p className="text-base text-muted-foreground mb-4">{job.summary}</p>
+                      <p className="text-base text-muted-foreground mb-4 text-justify">{job.summary}</p>
                   </>
               )}
 
