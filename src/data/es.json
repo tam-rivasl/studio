@@ -27,7 +27,14 @@
               "username": "tam-rivasl",
               "url": "https://github.com/johndoe"
             }
-          ]
+          ],
+          "headings": {
+            "about": "Sobre mí",
+            "experience": "Experiencia",
+            "education": "Educación",
+            "skills": "Habilidades",
+            "projects": "Proyectos"
+          }
         },
         "work": [
           {

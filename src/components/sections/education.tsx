@@ -11,7 +11,7 @@ import { Building } from "lucide-react";
 export function EducationSection() {
   // Obtiene los datos del CV del contexto.
   const { data } = useCV();
-  const { education } = data;
+  const { education, basics } = data;
 
   // Si no hay datos de educación, no renderiza la sección.
   if (!education || education.length === 0) {
@@ -31,7 +31,7 @@ export function EducationSection() {
   return (
     // Define la sección con un id para la navegación y un margen para el scroll.
     <section id="education" className="scroll-mt-20">
-      <h2 className="text-2xl font-bold mb-6 text-primary">Education</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">{basics.headings?.education ?? 'Education'}</h2>
       <div className="space-y-6">
         {/* Itera sobre cada elemento de educación y lo muestra. */}
         {education.map((edu, index) => (

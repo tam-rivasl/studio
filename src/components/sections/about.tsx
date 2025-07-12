@@ -16,7 +16,7 @@ export function AboutSection() {
     // Define la sección con un id para la navegación y un margen superior para el scroll.
     <section id="about" className="scroll-mt-20">
       {/* Título de la sección. */}
-       <h2 className="text-2xl font-bold mb-4 text-primary">About</h2>
+       <h2 className="text-2xl font-bold mb-4 text-primary">{basics.headings?.about ?? 'About'}</h2>
       {/* Párrafo con el resumen del perfil, obtenido de los datos del CV. */}
       <p className="text-base leading-relaxed text-muted-foreground text-justify">{basics.summary}</p>
     </section>

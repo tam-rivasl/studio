@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 export function ExperienceSection() {
   // Obtiene los datos del trabajo del contexto del CV.
   const { data } = useCV();
-  const { work } = data;
+  const { work, basics } = data;
 
   // Estado para gestionar qué tarjetas de experiencia están expandidas.
   // Es un objeto donde la clave es el índice del trabajo y el valor es un booleano.
@@ -45,7 +45,7 @@ export function ExperienceSection() {
   return (
     // Define la sección con un id para navegación y un margen para el anclaje del scroll.
     <section id="experience" className="scroll-mt-20">
-      <h2 className="text-2xl font-bold mb-6 text-primary">Experience</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">{basics.headings?.experience ?? 'Experience'}</h2>
       <div className="space-y-8">
         {/* Itera sobre cada experiencia laboral y la renderiza. */}
         {work.map((job, index) => {

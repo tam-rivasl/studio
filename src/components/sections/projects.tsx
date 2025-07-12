@@ -14,7 +14,7 @@ import Image from "next/image";
 export function ProjectsSection() {
   // Obtiene los datos de los proyectos del contexto del CV.
   const { data } = useCV();
-  const { projects } = data;
+  const { projects, basics } = data;
 
   // Si no hay proyectos o la lista está vacía, no renderiza la sección.
   if (!projects || projects.length === 0) {
@@ -24,7 +24,7 @@ export function ProjectsSection() {
   return (
     // Define la sección con un id para navegación y un margen para el anclaje del scroll.
     <section id="projects" className="scroll-mt-20">
-      <h2 className="text-2xl font-bold mb-6 text-primary">Projects</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">{basics.headings?.projects ?? 'Projects'}</h2>
       {/* Grid para mostrar los proyectos en columnas. */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Filtra los proyectos para mostrar solo los que están activos y los mapea a componentes Card. */}

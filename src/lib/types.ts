@@ -19,6 +19,17 @@ export interface Location {
 }
 
 /**
+ * Interfaz para los títulos de las secciones.
+ */
+export interface Headings {
+  about: string;
+  experience: string;
+  education: string;
+  skills: string;
+  projects: string;
+}
+
+/**
  * Interfaz para la información básica del perfil.
  */
 export interface Basics {
@@ -31,6 +42,7 @@ export interface Basics {
   summary: string; // Resumen profesional.
   location: Location; // Objeto con la información de ubicación.
   profiles: Profile[]; // Array de perfiles sociales.
+  headings?: Headings; // Títulos de las secciones.
 }
 
 /**
