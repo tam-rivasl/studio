@@ -18,7 +18,7 @@ export function AboutSection() {
       {/* Título de la sección. */}
        <h2 className="text-2xl font-bold mb-4 text-primary">About</h2>
       {/* Párrafo con el resumen del perfil, obtenido de los datos del CV. */}
-      <p className="text-base leading-relaxed text-muted-foreground text-center">{basics.summary}</p>
+      <p className="text-base leading-relaxed text-muted-foreground text-justify">{basics.summary}</p>
     </section>
   );
 }
