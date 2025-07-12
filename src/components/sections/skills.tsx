@@ -61,7 +61,7 @@ const svgLogos: { [key: string]: React.FC<React.SVGProps<SVGSVGElement>> } = {
   react: (props) => (
     <svg {...props} viewBox="0 0 128 128">
       <path fill="#61DAFB" d="M0 0h128v128H0z" />
-      <g fill="none" stroke="#000" stroke-width="3">
+      <g fill="none" stroke="#000" strokeWidth="3">
         <ellipse cx="64" cy="64" rx="55" ry="22" />
         <ellipse cx="64" cy="64" rx="55" ry="22" transform="rotate(60 64 64)" />
         <ellipse cx="64" cy="64" rx="55" ry="22" transform="rotate(120 64 64)" />
@@ -113,7 +113,7 @@ export function SkillsSection() {
 
   return (
     <section id="skills" className="scroll-mt-20">
-      <h2 className="text-2xl font-bold mb-6 text-primary">Skills</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">Habilidades</h2>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => {
           const SvgIcon = svgLogos[skill.name.toLowerCase()];
