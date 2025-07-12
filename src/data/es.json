@@ -33,7 +33,12 @@
             "experience": "Experiencia",
             "education": "Educación",
             "skills": "Habilidades",
-            "projects": "Proyectos"
+            "projects": "Proyectos",
+            "summary": "Resumen",
+            "responsibilities": "Responsabilidades",
+            "achievements": "Logros",
+            "showMore": "Mostrar Más",
+            "showLess": "Mostrar Menos"
           }
         },
         "work": [

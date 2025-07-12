@@ -41,11 +41,12 @@ export function ExperienceSection() {
 
   // Límite de elementos a mostrar cuando la sección está contraída.
   const PREVIEW_LIMIT = 2;
+  const headings = basics.headings;
 
   return (
     // Define la sección con un id para navegación y un margen para el anclaje del scroll.
     <section id="experience" className="scroll-mt-20">
-      <h2 className="text-2xl font-bold mb-6 text-primary">{basics.headings?.experience ?? 'Experience'}</h2>
+      <h2 className="text-2xl font-bold mb-6 text-primary">{headings?.experience ?? 'Experience'}</h2>
       <div className="space-y-8">
         {/* Itera sobre cada experiencia laboral y la renderiza. */}
         {work.map((job, index) => {
@@ -72,7 +73,7 @@ export function ExperienceSection() {
               {/* Renderizado condicional del resumen del trabajo. */}
               {job.summary && (
                   <>
-                      <h4 className="font-semibold text-md mb-1 text-primary/80">Summary:</h4>
+                      <h4 className="font-semibold text-md mb-1 text-primary/80">{headings?.summary ?? 'Summary'}:</h4>
                       <p className="text-base text-muted-foreground mb-4 text-justify">{job.summary}</p>
                   </>
               )}
@@ -80,7 +81,7 @@ export function ExperienceSection() {
               {/* Renderizado condicional de las responsabilidades. */}
               {responsibilities.length > 0 && (
                   <>
-                      <h4 className="font-semibold text-md mb-1 text-primary/80">Responsibilities:</h4>
+                      <h4 className="font-semibold text-md mb-1 text-primary/80">{headings?.responsibilities ?? 'Responsibilities'}:</h4>
                       <ul className="list-disc list-inside space-y-1 text-base text-muted-foreground mb-4 text-justify">
                           {(isExpanded ? responsibilities : responsibilities.slice(0, PREVIEW_LIMIT)).map((desc, i) => <li key={i}>{desc}</li>)}
                       </ul>
@@ -90,7 +91,7 @@ export function ExperienceSection() {
                {/* Renderizado condicional de los logros. */}
                {achievements.length > 0 && (
                   <>
-                      <h4 className="font-semibold text-md mb-1 text-primary/80">Achievements:</h4>
+                      <h4 className="font-semibold text-md mb-1 text-primary/80">{headings?.achievements ?? 'Achievements'}:</h4>
                       <ul className="list-disc list-inside space-y-1 text-base text-muted-foreground text-justify">
                           {(isExpanded ? achievements : achievements.slice(0, PREVIEW_LIMIT)).map((desc, i) => <li key={i}>{desc}</li>)}
                       </ul>
@@ -100,7 +101,7 @@ export function ExperienceSection() {
               {/* Botón para mostrar más o menos. */}
               {showToggleButton && (
                 <Button variant="link" onClick={() => toggleExpanded(index)} className="p-0 h-auto text-primary">
-                  {isExpanded ? "Show Less" : "Show More"}
+                  {isExpanded ? (headings?.showLess ?? 'Show Less') : (headings?.showMore ?? 'Show More')}
                 </Button>
               )}
             </div>

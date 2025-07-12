@@ -27,6 +27,11 @@ export interface Headings {
   education: string;
   skills: string;
   projects: string;
+  summary: string;
+  responsibilities: string;
+  achievements: string;
+  showMore: string;
+  showLess: string;
 }
 
 /**
