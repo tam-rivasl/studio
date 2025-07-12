@@ -119,17 +119,17 @@
             { "name": "CSS", "level": "Intermediate", "icon": "FileCode" },
             { "name": "JavaScript", "level": "Intermediate", "icon": "FileJson2" },
             { "name": "TypeScript", "level": "Intermediate", "icon": "FileJson2" },
-            { "name": "Node.js", "level": "Intermediate", "icon": "FileCode" },
+            { "name": "Node.js", "level": "Intermediate", "icon": "Server" },
             { "name": "MySQL", "level": "Intermediate", "icon": "Database" },
             { "name": "Git", "level": "Intermediate", "icon": "GitBranch" },
             { "name": "GitHub", "level": "Intermediate", "icon": "Github" },
             { "name": "Next.js", "level": "Beginner", "icon": "FileCode" },
-            { "name": "React", "level": "Intermediate", "icon": "React" },
-            { "name": "Docker", "level": "Intermediate", "icon": "Docker" },
+            { "name": "React", "level": "Intermediate", "icon": "Orbit" },
+            { "name": "Docker", "level": "Intermediate", "icon": "Container" },
             { "name": "Python", "level": "Intermediate", "icon": "FileCode" },
             { "name": "Java", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "Spring Boot", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "Nest.js", "level": "Intermediate", "icon": "FileCode" }
+            { "name": "Spring Boot", "level": "Intermediate", "icon": "Leaf" },
+            { "name": "Nest.js", "level": "Intermediate", "icon": "Bird" }
           ],
           "languages": [
             {
