@@ -81,7 +81,7 @@ export function ExperienceSection() {
               {responsibilities.length > 0 && (
                   <>
                       <h4 className="font-semibold text-md mb-1 text-primary/80">Responsibilities:</h4>
-                      <ul className="list-disc list-inside space-y-1 text-base text-muted-foreground mb-4">
+                      <ul className="list-disc list-inside space-y-1 text-base text-muted-foreground mb-4 text-justify">
                           {(isExpanded ? responsibilities : responsibilities.slice(0, PREVIEW_LIMIT)).map((desc, i) => <li key={i}>{desc}</li>)}
                       </ul>
                   </>
@@ -91,7 +91,7 @@ export function ExperienceSection() {
                {achievements.length > 0 && (
                   <>
                       <h4 className="font-semibold text-md mb-1 text-primary/80">Achievements:</h4>
-                      <ul className="list-disc list-inside space-y-1 text-base text-muted-foreground">
+                      <ul className="list-disc list-inside space-y-1 text-base text-muted-foreground text-justify">
                           {(isExpanded ? achievements : achievements.slice(0, PREVIEW_LIMIT)).map((desc, i) => <li key={i}>{desc}</li>)}
                       </ul>
                   </>
