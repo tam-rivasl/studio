@@ -46,8 +46,8 @@ export function useCV() {
  * @returns {JSX.Element} El elemento JSX que representa el contenedor del CV.
  */
 export function CVContainer({ data: allData }: { data: { en: CVData; es: CVData } }) {
-  // Estado para gestionar el idioma actual, por defecto 'en'.
-  const [lang, setLang] = useState<Language>("en");
+  // Estado para gestionar el idioma actual, por defecto 'es'.
+  const [lang, setLang] = useState<Language>("es");
   // Selecciona los datos del CV basados en el idioma actual.
   const data = allData[lang];
 
