@@ -116,13 +116,15 @@
           "skills": [
             { "name": "Docker", "level": "Intermedio", "icon": "docker" },
             { "name": "GitLab", "level": "Intermedio", "icon": "gitlab" },
-            { "name": "Java", "level": "Intermedio", "icon": "Coffee" },
-            { "name": "JavaScript", "level": "Intermedio", "icon": "Code" },
+            { "name": "Github", "level": "Intermedio", "icon": "github" },
+            { "name": "Java", "level": "Intermedio", "icon": "java" },
+            { "name": "JavaScript", "level": "Intermedio", "icon": "javascript" },
             { "name": "NestJS", "level": "Intermedio", "icon": "nestjs" },
-            { "name": "PostgreSQL", "level": "Intermedio", "icon": "Database" },
-            { "name": "React", "level": "Intermedio", "icon": "React" },
-            { "name": "Spring", "level": "Intermedio", "icon": "Leaf" },
-            { "name": "TypeScript", "level": "Intermedio", "icon": "Code" }
+            { "name": "NextJS", "level": "Intermedio", "icon": "nextjs" },
+            { "name": "PostgreSQL", "level": "Intermedio", "icon": "postgresql" },
+            { "name": "React", "level": "Intermedio", "icon": "react" },
+            { "name": "Spring", "level": "Intermedio", "icon": "spring-boot" },
+            { "name": "TypeScript", "level": "Intermedio", "icon": "typescript" }
           ],
           "languages": [
             {

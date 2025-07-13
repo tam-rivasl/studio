@@ -8,6 +8,7 @@ import { Icon } from "@/components/icon";
 export function SkillsSection() {
   const { data } = useCV();
   const { skills, basics } = data;
+  console.log(data, "data de skills", "skills: ", skills, "basics", basics)
 
   if (!skills || skills.length === 0) {
     return null;

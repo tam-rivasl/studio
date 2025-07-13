@@ -3,7 +3,6 @@
 
 // Importaciones de React, hooks y componentes de la UI.
 import React, { useEffect, useState, useCallback } from "react";
-import { useTheme } from "next-themes";
 import {
   CommandDialog,
   CommandEmpty,
@@ -47,6 +46,18 @@ const Kbd = React.forwardRef<
   );
 });
 Kbd.displayName = "Kbd";
+
+const CommandKey = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg {...props} width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.5 4.5H10.5V10.5H4.5V4.5ZM5.525 5.525V9.475H9.475V5.525H5.525ZM2 4.5C2 3.11929 3.11929 2 4.5 2H10.5C11.8807 2 13 3.11929 13 4.5V10.5C13 11.8807 11.8807 13 10.5 13H4.5C3.11929 13 2 11.8807 2 10.5V4.5Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path>
+    </svg>
+);
+
+const CtrlKey = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg {...props} width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.5 4.5L10.5 4.5L10.5 5.5L6.5 5.5L6.5 9.5L10.5 9.5L10.5 10.5L5.5 10.5L5.5 4.5Z" fill="currentColor"></path>
+    </svg>
+);
 
 
 /**
@@ -116,6 +127,8 @@ export function CommandPalette({ className }: { className?: string }) {
     },
   ];
   
+  const ModifierKey = isMac ? CommandKey : CtrlKey;
+
   return (
     <>
       {/* Botón para abrir la paleta de comandos. */}
@@ -166,7 +179,7 @@ export function CommandPalette({ className }: { className?: string }) {
                 <span>{cmd.name}</span>
                 {cmd.shortcut && (
                   <CommandShortcut>
-                    <Kbd>{isMac ? "⌘" : "Ctrl"}</Kbd>
+                    <ModifierKey className="h-3 w-3" />
                     <Kbd>{cmd.shortcut}</Kbd>
                   </CommandShortcut>
                 )}
@@ -187,7 +200,7 @@ export function CommandPalette({ className }: { className?: string }) {
                 <span>{cmd.name}</span>
                 {cmd.shortcut && (
                   <CommandShortcut>
-                    <Kbd>{isMac ? "⌘" : "Ctrl"}</Kbd>
+                    <ModifierKey className="h-3 w-3" />
                     <Kbd>{cmd.shortcut}</Kbd>
                   </CommandShortcut>
                 )}
@@ -203,7 +216,8 @@ export function CommandPalette({ className }: { className?: string }) {
                 <Kbd><ArrowUp size={12}/></Kbd> <Kbd><ArrowDown size={12}/></Kbd> to navigate
             </div>
             <div className="flex items-center gap-1">
-                <Kbd>{isMac ? "Cmd" : "Ctrl"} + K</Kbd> <Kbd>Escape</Kbd> to close
+                 <Kbd className="flex items-center gap-1"><ModifierKey className="h-2.5 w-2.5"/> K</Kbd>
+                 <Kbd>Escape</Kbd> to close
             </div>
         </div>
       </CommandDialog>

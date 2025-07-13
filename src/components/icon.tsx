@@ -11,10 +11,11 @@ import type { ImageProps } from 'next/image';
  */
 export const Icon = ({ name, size = 24, className, ...props }: { name?: string; size?: number; } & Omit<ImageProps, 'src' | 'alt' | 'width' | 'height'>) => {
   if (!name) return null;
-
+    console.log("icon: ", Icon.name, "name: ", name, "size: ", size)
+    console.log(`/icons/${name.toLowerCase()}.svg`)
   return (
     <Image
-      src={`/icons/${name.toLowerCase()}.svg`}
+      src={`icons/${name.toLowerCase()}.svg`}
       alt={`${name} icon`}
       width={size}
       height={size}
