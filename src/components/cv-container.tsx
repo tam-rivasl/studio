@@ -1,15 +1,16 @@
+
 "use client";
 
 // Importaciones de React, tipos y componentes.
 import React, { useState, createContext, useContext } from "react";
 import type { CVData } from "@/lib/types";
 import { CVSidebar } from "@/components/cv-sidebar";
-import { AboutSection } from "@/components/sections/about";
 import { ExperienceSection } from "@/components/sections/experience";
 import { EducationSection } from "@/components/sections/education";
 import { SkillsSection } from "@/components/sections/skills";
 import { ProjectsSection } from "@/components/sections/projects";
 import { CommandPalette } from "./command-palette";
+import { AnimatedSection } from "./animated-section";
 
 // Define los idiomas soportados.
 type Language = "en" | "es";
@@ -67,10 +68,18 @@ export function CVContainer({ data: allData }: { data: { en: CVData; es: CVData 
           <CVSidebar />
           {/* Contenido principal con las diferentes secciones del CV. */}
           <main className="lg:col-span-2 space-y-12">
-            <ExperienceSection />
-            <EducationSection />
-            <SkillsSection />
-            <ProjectsSection />
+            <AnimatedSection>
+              <ExperienceSection />
+            </AnimatedSection>
+            <AnimatedSection>
+              <EducationSection />
+            </AnimatedSection>
+            <AnimatedSection>
+               <SkillsSection />
+            </AnimatedSection>
+            <AnimatedSection>
+              <ProjectsSection />
+            </AnimatedSection>
           </main>
         </div>
       </div>
