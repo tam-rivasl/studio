@@ -3,6 +3,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Progress } from './ui/progress';
+import { cn } from '@/lib/utils';
 
 const GRID_SIZE = 20;
 const CANVAS_WIDTH = 800;
@@ -113,7 +114,10 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground p-4">
       <div
-        className="relative border-2 border-primary"
+        className={cn(
+            "relative border-2 border-primary",
+            isHappy && "animate-jump-for-joy"
+        )}
         style={{ width: CANVAS_WIDTH, height: CANVAS_HEIGHT, backgroundColor: BG_COLOR }}
       >
         {snake.map((segment, index) => (
