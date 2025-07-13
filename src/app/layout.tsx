@@ -1,9 +1,12 @@
+
 // Importaciones de tipos y componentes necesarios.
 import type { Metadata } from "next";
 import "./globals.css"; // Estilos globales de la aplicación.
 import { ThemeProvider } from "@/components/providers/theme-provider"; // Proveedor de temas (claro/oscuro).
 import { Toaster } from "@/components/ui/toaster"; // Componente para mostrar notificaciones (toasts).
 import { cn } from "@/lib/utils";
+import "flag-icons/css/flag-icons.min.css";
+
 
 // Metadatos de la página, importantes para SEO y para cómo se muestra en el navegador.
 export const metadata: Metadata = {

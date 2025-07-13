@@ -11,14 +11,13 @@ import { SkillsSection } from "@/components/sections/skills";
 import { ProjectsSection } from "@/components/sections/projects";
 import { CommandPalette } from "./command-palette";
 import { AnimatedSection } from "./animated-section";
+import type { LanguageCode } from "@/data";
 
-// Define los idiomas soportados.
-type Language = "en" | "es";
 
 // Define la estructura del contexto del CV.
 interface CVContextType {
-  lang: Language; // Idioma actual.
-  setLang: React.Dispatch<React.SetStateAction<Language>>; // Función para cambiar el idioma.
+  lang: LanguageCode; // Idioma actual.
+  setLang: React.Dispatch<React.SetStateAction<LanguageCode>>; // Función para cambiar el idioma.
   data: CVData; // Datos del CV para el idioma actual.
 }
 
@@ -46,9 +45,9 @@ export function useCV() {
  * @param {{ en: CVData; es: CVData }} props.data - Objeto con los datos del CV en inglés y español.
  * @returns {JSX.Element} El elemento JSX que representa el contenedor del CV.
  */
-export function CVContainer({ data: allData }: { data: { en: CVData; es: CVData } }) {
+export function CVContainer({ data: allData }: { data: Record<LanguageCode, CVData> }) {
   // Estado para gestionar el idioma actual, por defecto 'es'.
-  const [lang, setLang] = useState<Language>("es");
+  const [lang, setLang] = useState<LanguageCode>("es");
   // Selecciona los datos del CV basados en el idioma actual.
   const data = allData[lang];
 

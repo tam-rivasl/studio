@@ -1,0 +1,180 @@
+
+{
+    "basics": {
+      "name": "Tamara Rivas",
+      "label": "Back-End Entwicklerin",
+      "image": "/me_avatar.jpg",
+      "email": "tam.trivas@gmail.com",
+      "phone": "+56930666855",
+      "url": "https://johndoe.dev",
+      "theme": "green",
+      "summary": "Ich bin eine technologieorientierte Fachfrau mit Erfahrung in der Frontend-Entwicklung mit React und Backend-Frameworks wie NestJs und Spring Boot. Ich zeichne mich dadurch aus, komplexe Herausforderungen mit Kreativität und Entschlossenheit zu lösen. Ich erweitere ständig meine Fähigkeiten und interessiere mich auch leidenschaftlich für aufstrebende Bereiche wie maschinelles Lernen und Datenwissenschaft. Mein Ziel ist es, in einem kollaborativen und anpassungsfähigen Umfeld zu innovativen Projekten beizutragen.",
+      "location": {
+        "address": "Psj dichato #2954",
+        "postalCode": "10001",
+        "city": "Chillan",
+        "countryCode": "CL",
+        "region": "Chile"
+      },
+      "profiles": [
+        {
+          "network": "LinkedIn",
+          "username": "tamara-rivas-backend",
+          "url": "https://www.linkedin.com/in/tamara-rivas-backend/"
+        },
+        {
+          "network": "GitHub",
+          "username": "tam-rivasl",
+          "url": "https://github.com/johndoe"
+        }
+      ],
+      "headings": {
+        "about": "Über mich",
+        "experience": "Erfahrung",
+        "education": "Bildung",
+        "skills": "Fähigkeiten",
+        "projects": "Projekte",
+        "summary": "Zusammenfassung",
+        "responsibilities": "Verantwortlichkeiten",
+        "achievements": "Erfolge",
+        "showMore": "Mehr anzeigen",
+        "showLess": "Weniger anzeigen"
+      }
+    },
+    "work": [
+      {
+        "name": "Evolvetech Spa (Früher Stratech)",
+        "position": "Full Stack Entwicklerin / Back-End Entwicklerin",
+        "location_type": "Remote",
+        "location": "Santiago, Chile",
+        "url": "https://juegalo.com/cl",
+        "startDate": "2023-05-01",
+        "endDate": null,
+        "summary": "Ich habe umfangreiche Erfahrung in der Arbeit an Frontend- und Backend-Systemen in der Casino-Branche gesammelt, mit Schwerpunkt auf Microservices-Architektur, REST-APIs und Integrationsprojekten. Im Laufe der Zeit habe ich an der Lösung von Produktionsproblemen, der Entwicklung geschäftskritischer Funktionen und der Integration von Drittanbieterdiensten für Sportwetten und Benutzerverifizierung gearbeitet.",
+        "responsibilities": [
+          "Entwurf, Entwicklung und Wartung von Backend-Systemen unter Verwendung einer Microservices-Architektur.",
+          "Zusammenarbeit mit funktionsübergreifenden Teams zur Integration von Drittanbieterdiensten und zur Sicherstellung der Einhaltung gesetzlicher Vorschriften.",
+          "Verwendung von Frontend-Technologien zur Implementierung und Verbesserung von benutzerorientierten Funktionen.",
+          "Befolgung agiler Methoden (Scrum) für Projektmanagement und Aufgabenpriorisierung.",
+          "Gewährleistung eines reibungslosen Betriebs und der Skalierbarkeit von Backend-Diensten durch proaktive Überwachung und Wartung."
+        ],
+        "achievements": [
+          "Leitung der Integration von Betby, um einen reibungslosen Sportwettenbetrieb zu ermöglichen, einschließlich der Platzierung von Wetten und der Verfolgung von Ergebnissen.",
+          "Integration von Sumsub zur Benutzerverifizierung in mehreren Ländern, um die Einhaltung internationaler regulatorischer Standards zu gewährleisten.",
+          "Entscheidende Rolle bei der Lösung von Blockern für das Entwicklungsteam, was zu einer schnelleren Projektabwicklung und einem verbesserten Arbeitsablauf führte.",
+          "Beitrag zur Skalierbarkeit von Backend-Systemen durch Wartung und Erweiterung von Microservices mit Nest.js und Spring Boot."
+        ],
+        "skills": [
+          "Nest.js",
+          "Spring Boot",
+          "PostgreSQL",
+          "Docker"
+        ]
+      },
+      {
+        "name": "Stratech",
+        "position": "Full Stack Entwicklerin",
+        "location_type": "Remote",
+        "location": "Santiago, Chile",
+        "startDate": "2022-07-01",
+        "endDate": "2023-05-01",
+        "responsibilities": [
+          "Arbeit als Teil eines Notfallteams, Lösung von Produktionsproblemen und Verwaltung dringender Tickets, um den reibungslosen Betrieb der Casino-Plattform sicherzustellen.",
+          "Entwicklung und Wartung von Frontend-Funktionen mit Next.js, React.js und Ant Design.",
+          "Entwurf und Entwicklung eines Geschäfts-Dashboards mit Retool, einschließlich Berechtigungshierarchien.",
+          "Implementierung von Bestenlisten mit Strapi zur Steigerung des Benutzerengagements und der Plattforminteraktion.",
+          "Teilnahme an agilen Praktiken unter Verwendung von Scrum-Methoden und Tools wie Jira zur Aufgabenverfolgung."
+        ],
+        "achievements": [
+          "Integration der FreeSpins-Funktion für Casinospiele, was das Engagement und die Bindung der Benutzer erhöhte.",
+          "Lösung kritischer Produktionsprobleme in einer Hochdruckumgebung, um die Plattformstabilität zu gewährleisten und Ausfallzeiten zu minimieren.",
+          "Entwurf und Entwicklung eines Geschäfts-Dashboards mit rollenbasierter Berechtigungssteuerung unter Verwendung von Retool, wodurch interne Abläufe optimiert wurden.",
+          "Implementierung von Bestenlisten mit Strapi, was zu einer spürbaren Zunahme der Benutzerinteraktion innerhalb der Casino-Plattform führte.",
+          "Verbesserung der Frontend-Erfahrung durch die Lösung von Problemen mit Next.js und React.js, was die Gesamtleistung der Benutzeroberfläche verbesserte."
+        ],
+        "skills": [
+          "Next.js",
+          "React.js",
+          "Ant Design",
+          "Strapi"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Duoc UC Universität",
+        "url": "https://www.duoc.cl/",
+        "area": "Computer-Programmierer-Analystin",
+        "studyType": "Technischer Abschluss",
+        "startDate": "2021",
+        "endDate": "2024"
+      }
+    ],
+    "projects": [
+      {
+        "name": "Persönliches Portfolio",
+        "isActive": false,
+        "description": "Eine persönliche Portfolio-Website, um meine Projekte und Fähigkeiten zu präsentieren.",
+        "highlights": [
+          "Erstellt mit React und Tailwind CSS",
+          "Enthält einen Blog und ein Kontaktformular"
+        ],
+        "url": "https://johndoe.dev",
+        "github": "https://github.com"
+      },
+      {
+        "name": "Wetter-App",
+        "isActive": true,
+        "description": "Eine Webanwendung, die Wetterinformationen für jeden Ort bereitstellt.",
+        "highlights": [
+          "Entwickelt mit JavaScript und der OpenWeatherMap API",
+          "Responsives Design"
+        ],
+        "url": "https://weatherapp.com"
+      },
+      {
+        "name": "Aufgaben-Manager",
+        "isActive": true,
+        "description": "Eine einfache Aufgabenverwaltungs-App, um den Überblick über tägliche Aufgaben zu behalten.",
+        "highlights": [
+          "Entwickelt mit Node.js und MongoDB",
+          "Benutzerauthentifizierung und CRUD-Operationen"
+        ],
+        "url": "https://taskmanager.com",
+        "github": "https://github.com"
+      },
+      {
+        "name": "E-Commerce-Seite",
+        "isActive": false,
+        "description": "Ein Online-Shop, der mit Next.js und Stripe für die Zahlungsabwicklung erstellt wurde.",
+        "highlights": [
+          "Produktverwaltung und Warenkorbfunktionalität",
+          "Sichere Zahlungsintegration"
+        ],
+        "url": "https://ecommerce.com"
+      }
+    ],
+    "skills": [
+        { "name": "Docker", "level": "Mittel", "icon": "docker" },
+        { "name": "GitLab", "level": "Mittel", "icon": "gitlab" },
+        { "name": "Github", "level": "Mittel", "icon": "github" },
+        { "name": "Java", "level": "Mittel", "icon": "java" },
+        { "name": "JavaScript", "level": "Mittel", "icon": "javascript" },
+        { "name": "NestJS", "level": "Mittel", "icon": "nestjs" },
+        { "name": "NextJS", "level": "Mittel", "icon": "nextjs" },
+        { "name": "PostgreSQL", "level": "Mittel", "icon": "postgresql" },
+        { "name": "React", "level": "Mittel", "icon": "react" },
+        { "name": "Spring", "level": "Mittel", "icon": "spring-boot" },
+        { "name": "TypeScript", "level": "Mittel", "icon": "typescript" }
+    ],
+    "languages": [
+      {
+        "language": "Englisch",
+        "fluency": "A2 - TOEIC Bridge"
+      },
+      {
+        "language": "Spanisch",
+        "fluency": "Muttersprache"
+      }
+    ]
+  }
