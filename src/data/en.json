@@ -56,7 +56,7 @@
               ],
               "responsibilities": [
                 "Designed, developed, and maintained backend systems using microservices architecture.",
-                "Collaborated with cross-functional teams to integrate third-party services and ensure regulatory compliance.",
+                "Colaborated with cross-functional teams to integrate third-party services and ensure regulatory compliance.",
                 "Used frontend technologies to implement and improve user-facing features.",
                 "Followed agile methodologies (Scrum) for project management and task prioritization.",
                 "Ensured smooth operation and scalability of backend services through proactive monitoring and maintenance."
@@ -116,13 +116,13 @@
           "skills": [
             { "name": "Docker", "level": "Intermedio", "icon": "docker" },
             { "name": "GitLab", "level": "Intermedio", "icon": "gitlab" },
-            { "name": "Java", "level": "Intermedio", "icon": "java" },
-            { "name": "JavaScript", "level": "Intermedio", "icon": "javascript" },
+            { "name": "Java", "level": "Intermedio", "icon": "Coffee" },
+            { "name": "JavaScript", "level": "Intermedio", "icon": "Code" },
             { "name": "NestJS", "level": "Intermedio", "icon": "nestjs" },
-            { "name": "PostgreSQL", "level": "Intermedio", "icon": "postgresql" },
-            { "name": "React", "level": "Intermedio", "icon": "react" },
-            { "name": "Spring", "level": "Intermedio", "icon": "spring" },
-            { "name": "TypeScript", "level": "Intermedio", "icon": "typescript" }
+            { "name": "PostgreSQL", "level": "Intermedio", "icon": "Database" },
+            { "name": "React", "level": "Intermedio", "icon": "React" },
+            { "name": "Spring", "level": "Intermedio", "icon": "Leaf" },
+            { "name": "TypeScript", "level": "Intermedio", "icon": "Code" }
           ],
           "languages": [
             {
