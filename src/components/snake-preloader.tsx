@@ -45,13 +45,21 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
   const [targetFood, setTargetFood] = useState(food[0]);
   const [direction, setDirection] = useState({ x: 1, y: 0 });
   const [progress, setProgress] = useState(0);
+  const [isHappy, setIsHappy] = useState(false);
   
   const totalFoodCount = useRef(food.length);
 
   useEffect(() => {
-    if (food.length === 0) {
-      onComplete();
-      return;
+    if (isHappy) {
+      const timer = setTimeout(() => {
+        onComplete();
+      }, 1500); // Espera 1.5s antes de completar
+      return () => clearTimeout(timer);
+    }
+    
+    if (food.length === 0 && !isHappy) {
+        setIsHappy(true);
+        return;
     }
 
     const gameInterval = setInterval(() => {
@@ -61,10 +69,12 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
 
         // Simple AI: Mover hacia la comida
         let nextDir = { ...direction };
-        if (head.x < targetFood.x) nextDir = { x: 1, y: 0 };
-        else if (head.x > targetFood.x) nextDir = { x: -1, y: 0 };
-        else if (head.y < targetFood.y) nextDir = { x: 0, y: 1 };
-        else if (head.y > targetFood.y) nextDir = { x: 0, y: -1 };
+        if (targetFood){
+            if (head.x < targetFood.x) nextDir = { x: 1, y: 0 };
+            else if (head.x > targetFood.x) nextDir = { x: -1, y: 0 };
+            else if (head.y < targetFood.y) nextDir = { x: 0, y: 1 };
+            else if (head.y > targetFood.y) nextDir = { x: 0, y: -1 };
+        }
         
         setDirection(nextDir);
 
@@ -73,7 +83,7 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
         
         // Comprobar si come la comida
         let ateFood = false;
-        if (head.x === targetFood.x && head.y === targetFood.y) {
+        if (targetFood && head.x === targetFood.x && head.y === targetFood.y) {
           ateFood = true;
         }
 
@@ -84,6 +94,8 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
           setFood(remainingFood);
           if (remainingFood.length > 0) {
             setTargetFood(remainingFood[0]);
+          } else {
+            setTargetFood(null); // No hay más comida
           }
            const newProgress = ((totalFoodCount.current - remainingFood.length) / totalFoodCount.current) * 100;
            setProgress(newProgress);
@@ -96,7 +108,7 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
     }, 100);
 
     return () => clearInterval(gameInterval);
-  }, [food, targetFood, onComplete, direction]);
+  }, [food, targetFood, onComplete, direction, isHappy]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground p-4">
@@ -119,9 +131,12 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
           >
             {/* Añadir ojos a la cabeza */}
             {index === 0 && (
-              <div className="flex gap-1">
-                <div className="w-1 h-1 rounded-full" style={{backgroundColor: BG_COLOR}}></div>
-                <div className="w-1 h-1 rounded-full" style={{backgroundColor: BG_COLOR}}></div>
+              <div 
+                className="flex font-bold"
+                style={{ color: BG_COLOR, lineHeight: 1, gap: isHappy ? 0 : '4px', marginTop: isHappy ? '-4px' : 0 }}
+              >
+                <span>{isHappy ? '^' : '•'}</span>
+                <span>{isHappy ? '^' : '•'}</span>
               </div>
             )}
           </div>
