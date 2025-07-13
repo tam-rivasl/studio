@@ -114,16 +114,16 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground p-4">
       <div
-        className={cn(
-            "relative border-2 border-primary",
-            isHappy && "animate-jump-for-joy"
-        )}
+        className="relative border-2 border-primary"
         style={{ width: CANVAS_WIDTH, height: CANVAS_HEIGHT, backgroundColor: BG_COLOR }}
       >
         {snake.map((segment, index) => (
           <div
             key={index}
-            className="absolute flex items-center justify-center rounded-full shadow-md"
+            className={cn(
+                "absolute flex items-center justify-center rounded-full shadow-md",
+                 isHappy && "animate-jump-for-joy"
+            )}
             style={{
               width: GRID_SIZE,
               height: GRID_SIZE,
