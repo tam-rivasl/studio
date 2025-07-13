@@ -7,6 +7,7 @@ const flagClasses: Record<LanguageCode, string> = {
   en: "fi fi-gb",
   fr: "fi fi-fr",
   de: "fi fi-de",
+  pt: "fi fi-pt",
 };
 
 export function FlagIcon({ code, className }: { code: LanguageCode, className?: string }) {

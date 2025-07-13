@@ -1,0 +1,180 @@
+
+{
+  "basics": {
+    "name": "Tamara Rivas",
+    "label": "Desenvolvedora Back-End",
+    "image": "/me_avatar.jpg",
+    "email": "tam.trivas@gmail.com",
+    "phone": "+56930666855",
+    "url": "https://johndoe.dev",
+    "theme": "green",
+    "summary": "Sou uma profissional orientada para a tecnologia, com experiência em desenvolvimento frontend usando React e frameworks backend como NestJs e Spring Boot. Destaco-me na resolução de desafios complexos com criatividade e determinação. Expandindo constantemente as minhas competências, sou também apaixonada por explorar áreas emergentes como machine learning e ciência de dados. O meu objetivo é contribuir para projetos inovadores num ambiente colaborativo e adaptável.",
+    "location": {
+      "address": "Psj dichato #2954",
+      "postalCode": "10001",
+      "city": "Chillan",
+      "countryCode": "CL",
+      "region": "Chile"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "tamara-rivas-backend",
+        "url": "https://www.linkedin.com/in/tamara-rivas-backend/"
+      },
+      {
+        "network": "GitHub",
+        "username": "tam-rivasl",
+        "url": "https://github.com/johndoe"
+      }
+    ],
+    "headings": {
+      "about": "Sobre mim",
+      "experience": "Experiência",
+      "education": "Educação",
+      "skills": "Habilidades",
+      "projects": "Projetos",
+      "summary": "Resumo",
+      "responsibilities": "Responsabilidades",
+      "achievements": "Conquistas",
+      "showMore": "Mostrar Mais",
+      "showLess": "Mostrar Menos"
+    }
+  },
+  "work": [
+    {
+      "name": "Evolvetech Spa (Anteriormente Stratech)",
+      "position": "Desenvolvedora Full Stack / Desenvolvedora Backend",
+      "location_type": "Remoto",
+      "location": "Santiago, Chile",
+      "url": "https://juegalo.com/cl",
+      "startDate": "2023-05-01",
+      "endDate": null,
+      "summary": "Ganhei vasta experiência a trabalhar em sistemas frontend e backend na indústria de casinos, focando-me na arquitetura de microserviços, APIs REST e projetos de integração. Ao longo do tempo, trabalhei na resolução de problemas de produção, na construção de funcionalidades críticas para o negócio e na integração de serviços de terceiros para operações de apostas desportivas e verificação de utilizadores.",
+      "responsibilities": [
+        "Projetei, desenvolvi e mantive sistemas backend usando arquitetura de microserviços.",
+        "Colaborei com equipas multifuncionais para integrar serviços de terceiros e garantir a conformidade regulamentar.",
+        "Usei tecnologias frontend para implementar e melhorar funcionalidades voltadas para o utilizador.",
+        "Segui metodologias ágeis (Scrum) para gestão de projetos e priorização de tarefas.",
+        "Garanti o bom funcionamento e a escalabilidade dos serviços backend através de monitorização e manutenção proativas."
+      ],
+      "achievements": [
+        "Liderei a integração da Betby, permitindo operações de apostas desportivas sem falhas, incluindo a colocação de apostas e o acompanhamento de resultados.",
+        "Integrei o Sumsub para verificação de utilizadores em vários países, garantindo a conformidade com as normas regulamentares internacionais.",
+        "Desempenhei um papel fundamental na resolução de bloqueios para a equipa de desenvolvimento, o que levou a uma conclusão mais rápida dos projetos e a um fluxo de trabalho melhorado.",
+        "Contribuí para a escalabilidade dos sistemas backend, mantendo e expandindo microserviços usando Nest.js e Spring Boot."
+      ],
+      "skills": [
+        "Nest.js",
+        "Spring Boot",
+        "PostgreSQL",
+        "Docker"
+      ]
+    },
+    {
+      "name": "Stratech",
+      "position": "Desenvolvedora Full Stack",
+      "location_type": "Remoto",
+      "location": "Santiago, Chile",
+      "startDate": "2022-07-01",
+      "endDate": "2023-05-01",
+      "responsibilities": [
+        "Trabalhei como parte de uma equipa de contingência, resolvendo problemas de produção e gerindo tickets urgentes para garantir o bom funcionamento da plataforma do casino.",
+        "Desenvolvi e mantive funcionalidades frontend usando Next.js, React.js e Ant Design.",
+        "Projetei e desenvolvi um dashboard de negócios com o Retool, incorporando hierarquias de permissões.",
+        "Implementei tabelas de classificação usando o Strapi para aumentar o envolvimento dos utilizadores e a interação com a plataforma.",
+        "Participei em práticas ágeis, usando metodologias Scrum e ferramentas como o Jira para o acompanhamento de tarefas."
+      ],
+      "achievements": [
+        "Integrei a funcionalidade de FreeSpins para jogos de casino, aumentando o envolvimento e a retenção de utilizadores.",
+        "Resolvi problemas críticos de produção num ambiente de alta pressão, garantindo a estabilidade da plataforma e minimizando o tempo de inatividade.",
+        "Projetei e desenvolvi um dashboard de negócios com controlo de permissões baseado em funções usando o Retool, otimizando as operações internas.",
+        "Implementei tabelas de classificação usando o Strapi, o que levou a um aumento notável na interação dos utilizadores dentro da plataforma do casino.",
+        "Melhorei a experiência frontend resolvendo problemas com Next.js e React.js, melhorando o desempenho geral da interface do utilizador."
+      ],
+      "skills": [
+        "Next.js",
+        "React.js",
+        "Ant Design",
+        "Strapi"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidade Duoc UC",
+      "url": "https://www.duoc.cl/",
+      "area": "Analista Programadora Computacional",
+      "studyType": "Curso Técnico",
+      "startDate": "2021",
+      "endDate": "2024"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Portfólio Pessoal",
+      "isActive": false,
+      "description": "Um site de portfólio pessoal para mostrar os meus projetos e competências.",
+      "highlights": [
+        "Construído com React e Tailwind CSS",
+        "Inclui um blog e um formulário de contacto"
+      ],
+      "url": "https://johndoe.dev",
+      "github": "https://github.com"
+    },
+    {
+      "name": "Aplicação de Meteorologia",
+      "isActive": true,
+      "description": "Uma aplicação web que fornece informações meteorológicas para qualquer local.",
+      "highlights": [
+        "Construída com JavaScript e a API OpenWeatherMap",
+        "Design responsivo"
+      ],
+      "url": "https://weatherapp.com"
+    },
+    {
+      "name": "Gestor de Tarefas",
+      "isActive": true,
+      "description": "Uma aplicação simples de gestão de tarefas para acompanhar as tarefas diárias.",
+      "highlights": [
+        "Construída com Node.js e MongoDB",
+        "Autenticação de utilizadores e operações CRUD"
+      ],
+      "url": "https://taskmanager.com",
+      "github": "https://github.com"
+    },
+    {
+      "name": "Site de E-commerce",
+      "isActive": false,
+      "description": "Uma loja online construída com Next.js e Stripe para o processamento de pagamentos.",
+      "highlights": [
+        "Gestão de produtos e funcionalidade de carrinho de compras",
+        "Integração de pagamentos segura"
+      ],
+      "url": "https://ecommerce.com"
+    }
+  ],
+  "skills": [
+    { "name": "Docker", "level": "Intermédio", "icon": "docker" },
+    { "name": "GitLab", "level": "Intermédio", "icon": "gitlab" },
+    { "name": "Github", "level": "Intermédio", "icon": "github" },
+    { "name": "Java", "level": "Intermédio", "icon": "java" },
+    { "name": "JavaScript", "level": "Intermédio", "icon": "javascript" },
+    { "name": "NestJS", "level": "Intermédio", "icon": "nestjs" },
+    { "name": "NextJS", "level": "Intermédio", "icon": "nextjs" },
+    { "name": "PostgreSQL", "level": "Intermédio", "icon": "postgresql" },
+    { "name": "React", "level": "Intermédio", "icon": "react" },
+    { "name": "Spring", "level": "Intermédio", "icon": "spring-boot" },
+    { "name": "TypeScript", "level": "Intermédio", "icon": "typescript" }
+  ],
+  "languages": [
+    {
+      "language": "Inglês",
+      "fluency": "A2 - TOEIC Bridge"
+    },
+    {
+      "language": "Espanhol",
+      "fluency": "Nativo"
+    }
+  ]
+}
