@@ -35,27 +35,29 @@ export function CVSidebar({className}: {className?: string}) {
   const { basics } = data;
 
   const handleCopyPhone = () => {
-    navigator.clipboard.writeText(basics.phone);
-    toast({
-      title: "¡Copiado!",
-      description: `El número ${basics.phone} ha sido copiado.`,
-    });
+    if (basics.phone) {
+      navigator.clipboard.writeText(basics.phone);
+      toast({
+        title: "¡Copiado!",
+        description: `El número ${basics.phone} ha sido copiado.`,
+      });
+    }
   };
 
   const contactItems = [
-    {
+    ...(basics.email ? [{
       label: "Email",
       value: basics.email,
       href: `mailto:${basics.email}`,
       icon: <Mail className="h-4 w-4" />,
       action: () => {}
-    },
-    {
+    }] : []),
+    ...(basics.phone ? [{
       label: "Phone",
       value: basics.phone,
       icon: <Phone className="h-4 w-4" />,
       action: handleCopyPhone,
-    },
+    }] : []),
     ...basics.profiles.map(profile => ({
       label: profile.network,
       value: profile.url,
@@ -79,7 +81,7 @@ export function CVSidebar({className}: {className?: string}) {
           className="rounded-full shadow-lg mb-4"
         />
         {/* Nombre y profesión */}
-        <h1 className="text-3xl font-bold">{basics.name}</h1>
+        <h1 className="text-3xl font-bold font-heading">{basics.name}</h1>
         <p className="text-xl text-primary font-body">{basics.label}</p>
         
         {/* Información de ubicación */}
