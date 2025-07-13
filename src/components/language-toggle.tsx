@@ -1,7 +1,6 @@
-
 "use client";
 
-import *s React from "react";
+import * as React from "react";
 import { useCV } from "./cv-container";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,8 +9,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Check, Globe } from "lucide-react";
-import { languages, Language } from "@/data";
+import { Check } from "lucide-react";
+import { languages, type Language } from "@/data";
 import { FlagIcon } from "./flag-icon";
 
 export function LanguageToggle() {
