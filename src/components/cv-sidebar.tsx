@@ -2,15 +2,12 @@
 "use client";
 
 // Importaciones de Next.js, React, hooks y componentes.
-import Image from "next/image";
 import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
 import { useCV } from "./cv-container";
-import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { AboutSection } from "./sections/about";
 import { LanguageToggle } from "./language-toggle";
 import { ThemeToggle } from "./theme-toggle";
-import { CommandPalette } from "./command-palette";
 import { useToast } from "@/hooks/use-toast";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
@@ -69,7 +66,7 @@ export function CVSidebar({className}: {className?: string}) {
 
   return (
     // Contenedor de la barra lateral con posición pegajosa en pantallas grandes.
-    <aside className={cn("lg:sticky top-12 space-y-8", className)}>
+    <aside className={cn("lg:sticky top-12 space-y-8 print-sidebar", className)}>
       <div>
         {/* Nombre y profesión */}
         <h1 className="text-3xl font-bold font-heading">{basics.name}</h1>
@@ -116,10 +113,9 @@ export function CVSidebar({className}: {className?: string}) {
         </TooltipProvider>
 
         {/* Controles de la aplicación */}
-        <div className="flex items-center gap-2 mt-6">
+        <div className="flex items-center gap-2 mt-6 no-print">
           <LanguageToggle />
           <ThemeToggle />
-          <CommandPalette />
         </div>
       </div>
       

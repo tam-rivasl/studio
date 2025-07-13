@@ -60,13 +60,13 @@ export function CVContainer({ data: allData }: { data: Record<LanguageCode, CVDa
     // Proveedor de contexto que pasa el idioma, la función para cambiarlo y los datos actuales.
     <CVContext.Provider value={{ lang, setLang, data }}>
        {/* Contenedor principal con fondo y padding. */}
-       <div className="min-h-screen bg-background p-4 sm:p-8 md:p-12">
+       <div className="min-h-screen bg-background p-4 sm:p-8 md:p-12 print-container">
         {/* Grid para el diseño de dos columnas en pantallas grandes. */}
-        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-12 print-grid">
           {/* Barra lateral pegajosa con la información principal. */}
           <CVSidebar />
           {/* Contenido principal con las diferentes secciones del CV. */}
-          <main className="lg:col-span-2 space-y-12">
+          <main className="lg:col-span-2 space-y-12 print-main">
             <AnimatedSection>
               <ExperienceSection />
             </AnimatedSection>
@@ -83,7 +83,7 @@ export function CVContainer({ data: allData }: { data: Record<LanguageCode, CVDa
         </div>
       </div>
       {/* La paleta de comandos se añade aquí, pero podría estar oculta por defecto. */}
-      <CommandPalette />
+      <CommandPalette className="fixed bottom-4 right-4" />
     </CVContext.Provider>
   );
 }

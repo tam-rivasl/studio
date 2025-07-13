@@ -123,7 +123,7 @@ export function CommandPalette({ className }: { className?: string }) {
         variant="outline"
         size="icon"
         className={cn(
-          "h-8 w-8 transition-transform duration-300 hover:scale-110",
+          "h-8 w-8 transition-transform duration-300 hover:scale-110 no-print",
           className
         )}
         onClick={() => setOpen(true)}

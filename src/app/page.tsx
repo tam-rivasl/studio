@@ -2,13 +2,14 @@
 "use client";
 
 // Importaciones de React, componentes y tipos necesarios.
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CVContainer } from "@/components/cv-container";
 import type { CVData } from "@/lib/types";
 // Importación de los datos del CV desde un único punto.
 import { cvData } from "@/data";
 import type { LanguageCode } from "@/data";
 import { SnakePreloader } from "@/components/snake-preloader";
+import { cn } from "@/lib/utils";
 
 /**
  * La función Home es el componente principal de la página de inicio.
@@ -26,13 +27,13 @@ export default function Home() {
 
   return (
     <>
-      {loading ? (
+      <div className={loading ? 'block' : 'hidden'}>
         <SnakePreloader onComplete={handleLoadingComplete} />
-      ) : (
-        <div className="animate-fade-in-up">
+      </div>
+
+      <div className={cn("animate-fade-in-up", loading ? 'hidden' : 'block')}>
           <CVContainer data={typedCvData} />
-        </div>
-      )}
+      </div>
     </>
   );
 }
