@@ -8,7 +8,7 @@ import type { CVData } from "@/lib/types";
 // Importación de los datos del CV en inglés y español desde archivos JSON.
 import enData from "@/data/en.json";
 import esData from "@/data/es.json";
-import { Preloader } from "@/components/preloader";
+import { SnakePreloader } from "@/components/snake-preloader";
 
 /**
  * La función Home es el componente principal de la página de inicio.
@@ -21,27 +21,15 @@ export default function Home() {
   const typedEsData: CVData = esData as unknown as CVData;
 
   const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => setLoading(false), 500); // Pequeño delay para la transición
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 30); // Ajusta la velocidad de la barra de carga
-
-    return () => clearInterval(interval);
-  }, []);
+  const handleLoadingComplete = () => {
+     setTimeout(() => setLoading(false), 500); // Pequeño delay para la transición
+  };
 
   return (
     <>
       {loading ? (
-        <Preloader progress={progress} />
+        <SnakePreloader onComplete={handleLoadingComplete} />
       ) : (
         <div className="animate-fade-in-up">
           <CVContainer data={{ en: typedEnData, es: typedEsData }} />

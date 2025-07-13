@@ -2,8 +2,6 @@
 "use client";
 
 import { Progress } from "./ui/progress";
-import { useCV } from "./cv-container";
-
 
 export function Preloader({ progress }: { progress: number }) {
 
