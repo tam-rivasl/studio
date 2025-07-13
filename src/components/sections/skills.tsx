@@ -18,7 +18,7 @@ export function SkillsSection() {
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
             <Badge key={index} variant="secondary" className="flex items-center gap-2 text-sm font-medium transition-transform duration-200 hover:scale-105">
-              <Icon name={skill.icon} className="h-4 w-4" />
+              <Icon name={skill.icon} size={16} />
               <span>{skill.name}</span>
             </Badge>
           )

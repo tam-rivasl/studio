@@ -114,22 +114,15 @@
             }
           ],
           "skills": [
-            { "name": "GitLab", "level": "Intermediate", "icon": "gitlab" },
-            { "name": "HTML", "level": "Intermediate", "icon": "html" },
-            { "name": "CSS", "level": "Intermediate", "icon": "css" },
-            { "name": "JavaScript", "level": "Intermediate", "icon": "javascript" },
-            { "name": "TypeScript", "level": "Intermediate", "icon": "typescript" },
-            { "name": "Node.js", "level": "Intermediate", "icon": "Server" },
-            { "name": "MySQL", "level": "Intermediate", "icon": "Database" },
-            { "name": "Git", "level": "Intermediate", "icon": "git" },
-            { "name": "GitHub", "level": "Intermediate", "icon": "github" },
-            { "name": "Next.js", "level": "Beginner", "icon": "FileCode" },
-            { "name": "React", "level": "Intermediate", "icon": "Orbit" },
-            { "name": "Docker", "level": "Intermediate", "icon": "Container" },
-            { "name": "Python", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "Java", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "Spring Boot", "level": "Intermediate", "icon": "Leaf" },
-            { "name": "Nest.js", "level": "Intermediate", "icon": "Bird" }
+            { "name": "Docker", "level": "Intermedio", "icon": "docker" },
+            { "name": "GitLab", "level": "Intermedio", "icon": "gitlab" },
+            { "name": "Java", "level": "Intermedio", "icon": "java" },
+            { "name": "JavaScript", "level": "Intermedio", "icon": "javascript" },
+            { "name": "NestJS", "level": "Intermedio", "icon": "nestjs" },
+            { "name": "PostgreSQL", "level": "Intermedio", "icon": "postgresql" },
+            { "name": "React", "level": "Intermedio", "icon": "react" },
+            { "name": "Spring", "level": "Intermedio", "icon": "spring" },
+            { "name": "TypeScript", "level": "Intermedio", "icon": "typescript" }
           ],
           "languages": [
             {
