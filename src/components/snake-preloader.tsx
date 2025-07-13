@@ -5,21 +5,27 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Progress } from './ui/progress';
 import { cn } from '@/lib/utils';
 
+// Constantes para la configuración del juego (tamaño de la cuadrícula, dimensiones del lienzo).
 const GRID_SIZE = 20;
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 400;
 const GRID_WIDTH = CANVAS_WIDTH / GRID_SIZE;
 const GRID_HEIGHT = CANVAS_HEIGHT / GRID_SIZE;
 
+// Texto que la serpiente "comerá".
 const TEXT_LINE_1 = "Tamara Rivas";
 const TEXT_LINE_2 = "Desarrolladora Back-End";
 
+// Colores del juego, obtenidos de las variables CSS para consistencia con el tema.
 const FONT_COLOR = "hsl(var(--primary))";
 const SNAKE_COLOR = "hsl(var(--foreground))";
 const BG_COLOR = "hsl(var(--background))";
 
 
-// Genera las posiciones de las letras como "comida"
+/**
+ * Genera las posiciones iniciales de la "comida" (letras) en el lienzo.
+ * @returns {Array<{x: number, y: number, char: string}>} Un array de objetos, cada uno representando una letra con su posición y carácter.
+ */
 const generateFoodPositions = () => {
   const food = [];
   const y1 = Math.floor(GRID_HEIGHT / 2) - 2;
@@ -40,6 +46,12 @@ const generateFoodPositions = () => {
   return food;
 };
 
+/**
+ * Componente SnakePreloader que muestra una animación de juego "Snake" mientras carga la página.
+ * @param {object} props - Propiedades del componente.
+ * @param {() => void} props.onComplete - Callback que se ejecuta cuando la animación termina.
+ * @returns {JSX.Element} El elemento JSX del preloader.
+ */
 export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
   const [snake, setSnake] = useState([{ x: 1, y: 1 }]);
   const [food, setFood] = useState(generateFoodPositions);
@@ -50,7 +62,9 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
   
   const totalFoodCount = useRef(food.length);
 
+  // Efecto principal que controla el bucle del juego.
   useEffect(() => {
+    // Si la serpiente está feliz, espera un momento y luego llama a onComplete.
     if (isHappy) {
       const timer = setTimeout(() => {
         onComplete();
@@ -58,17 +72,19 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
       return () => clearTimeout(timer);
     }
     
+    // Si no hay más comida y la serpiente aún no está feliz, la pone feliz.
     if (food.length === 0 && !isHappy) {
         setIsHappy(true);
         return;
     }
 
+    // Intervalo principal del juego para mover la serpiente.
     const gameInterval = setInterval(() => {
       setSnake((prevSnake) => {
         const newSnake = [...prevSnake];
         const head = { ...newSnake[0] };
 
-        // Simple AI: Mover hacia la comida
+        // IA simple: Mover la serpiente hacia la comida objetivo.
         let nextDir = { ...direction };
         if (targetFood){
             if (head.x < targetFood.x) nextDir = { x: 1, y: 0 };
@@ -82,7 +98,7 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
         head.x += nextDir.x;
         head.y += nextDir.y;
         
-        // Comprobar si come la comida
+        // Comprueba si la cabeza de la serpiente ha alcanzado la comida.
         let ateFood = false;
         if (targetFood && head.x === targetFood.x && head.y === targetFood.y) {
           ateFood = true;
@@ -91,38 +107,38 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
         newSnake.unshift(head);
 
         if (ateFood) {
+          // Si come, se elimina la comida, se actualiza el progreso y se elige un nuevo objetivo.
           const remainingFood = food.filter(f => !(f.x === targetFood.x && f.y === targetFood.y));
           setFood(remainingFood);
-          if (remainingFood.length > 0) {
-            setTargetFood(remainingFood[0]);
-          } else {
-            setTargetFood(null); // No hay más comida
-          }
-           const newProgress = ((totalFoodCount.current - remainingFood.length) / totalFoodCount.current) * 100;
-           setProgress(newProgress);
+          setTargetFood(remainingFood[0] || null);
+          const newProgress = ((totalFoodCount.current - remainingFood.length) / totalFoodCount.current) * 100;
+          setProgress(newProgress);
         } else {
+          // Si no come, se elimina el último segmento de la cola para simular el movimiento.
           newSnake.pop();
         }
 
         return newSnake;
       });
-    }, 100);
+    }, 100); // Velocidad del juego.
 
     return () => clearInterval(gameInterval);
   }, [food, targetFood, onComplete, direction, isHappy]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground p-4">
+      {/* El "lienzo" o tablero del juego. */}
       <div
         className="relative border-2 border-primary"
         style={{ width: CANVAS_WIDTH, height: CANVAS_HEIGHT, backgroundColor: BG_COLOR }}
       >
+        {/* Renderiza cada segmento de la serpiente. */}
         {snake.map((segment, index) => (
           <div
             key={index}
             className={cn(
                 "absolute flex items-center justify-center rounded-full shadow-md",
-                 isHappy && "animate-jump-for-joy"
+                 isHappy && "animate-jump-for-joy" // Aplica la animación de salto si está feliz.
             )}
             style={{
               width: GRID_SIZE,
@@ -130,10 +146,10 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
               left: segment.x * GRID_SIZE,
               top: segment.y * GRID_SIZE,
               backgroundColor: SNAKE_COLOR,
-              zIndex: 10 - index // La cabeza estará por encima
+              zIndex: 10 - index // La cabeza siempre estará por encima de la cola.
             }}
           >
-            {/* Añadir ojos a la cabeza */}
+            {/* Añade ojos a la cabeza de la serpiente. */}
             {index === 0 && (
               <div 
                 className="flex font-bold"
@@ -145,6 +161,7 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
             )}
           </div>
         ))}
+        {/* Renderiza las letras (comida). */}
         {food.map((f, index) => (
           <div
             key={index}
@@ -162,6 +179,7 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
           </div>
         ))}
       </div>
+      {/* Barra de progreso y texto de carga. */}
        <div className="w-full max-w-lg mt-8">
         <Progress value={progress} className="h-4 rounded-full" />
         <p className="text-center font-mono mt-2 text-sm text-primary">Loading... {Math.round(progress)}%</p>
