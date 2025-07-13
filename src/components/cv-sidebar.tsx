@@ -71,15 +71,6 @@ export function CVSidebar({className}: {className?: string}) {
     // Contenedor de la barra lateral con posición pegajosa en pantallas grandes.
     <aside className={cn("lg:sticky top-12 space-y-8", className)}>
       <div>
-        {/* Imagen de perfil */}
-        <Image 
-          src={"https://placehold.co/200x200.png"}
-          data-ai-hint="avatar"
-          alt={basics.name}
-          width={150}
-          height={150}
-          className="rounded-full shadow-lg mb-4"
-        />
         {/* Nombre y profesión */}
         <h1 className="text-3xl font-bold font-heading">{basics.name}</h1>
         <p className="text-xl text-primary font-body">{basics.label}</p>

@@ -149,15 +149,26 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
               zIndex: 10 - index // La cabeza siempre estará por encima de la cola.
             }}
           >
-            {/* Añade ojos a la cabeza de la serpiente. */}
+            {/* Añade ojos y un moño a la cabeza de la serpiente. */}
             {index === 0 && (
-              <div 
-                className="flex font-bold"
-                style={{ color: BG_COLOR, lineHeight: 1, gap: isHappy ? 0 : '4px', marginTop: isHappy ? '-4px' : 0 }}
-              >
-                <span>{isHappy ? '^' : '•'}</span>
-                <span>{isHappy ? '^' : '•'}</span>
-              </div>
+              <>
+                <div 
+                  className="flex font-bold"
+                  style={{ color: BG_COLOR, lineHeight: 1, gap: isHappy ? 0 : '4px', marginTop: isHappy ? '-4px' : 0 }}
+                >
+                  <span>{isHappy ? '^' : '•'}</span>
+                  <span>{isHappy ? '^' : '•'}</span>
+                </div>
+                {/* Moñito */}
+                <div 
+                  className="absolute -top-1 -right-1 w-4 h-4"
+                  style={{ transform: 'rotate(20deg)' }}
+                >
+                  <div className="absolute w-2 h-2 bg-pink-400 rounded-full left-0 top-1/2 -translate-y-1/2"></div>
+                  <div className="absolute w-2 h-2 bg-pink-400 rounded-full right-0 top-1/2 -translate-y-1/2"></div>
+                  <div className="absolute w-1.5 h-1.5 bg-pink-500 rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                </div>
+              </>
             )}
           </div>
         ))}
