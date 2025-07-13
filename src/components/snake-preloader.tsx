@@ -107,15 +107,24 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
         {snake.map((segment, index) => (
           <div
             key={index}
-            className="absolute"
+            className="absolute flex items-center justify-center rounded-full shadow-md"
             style={{
               width: GRID_SIZE,
               height: GRID_SIZE,
               left: segment.x * GRID_SIZE,
               top: segment.y * GRID_SIZE,
               backgroundColor: SNAKE_COLOR,
+              zIndex: 10 - index // La cabeza estará por encima
             }}
-          />
+          >
+            {/* Añadir ojos a la cabeza */}
+            {index === 0 && (
+              <div className="flex gap-1">
+                <div className="w-1 h-1 rounded-full" style={{backgroundColor: BG_COLOR}}></div>
+                <div className="w-1 h-1 rounded-full" style={{backgroundColor: BG_COLOR}}></div>
+              </div>
+            )}
+          </div>
         ))}
         {food.map((f, index) => (
           <div
@@ -135,7 +144,7 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
         ))}
       </div>
        <div className="w-full max-w-lg mt-8">
-        <Progress value={progress} className="h-4 rounded-none" />
+        <Progress value={progress} className="h-4 rounded-full" />
         <p className="text-center font-mono mt-2 text-sm text-primary">Loading... {Math.round(progress)}%</p>
       </div>
     </div>
