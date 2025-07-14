@@ -3,7 +3,6 @@
 
 // Importaciones de React, hooks y componentes de la UI.
 import React, { useEffect, useState, useCallback } from "react";
-import { useTheme } from "next-themes";
 import {
   CommandDialog,
   CommandEmpty,
@@ -47,7 +46,6 @@ const Kbd = React.forwardRef<
   );
 });
 Kbd.displayName = "Kbd";
-
 
 /**
  * Componente que muestra una paleta de comandos para navegación y acciones rápidas.
@@ -116,6 +114,8 @@ export function CommandPalette({ className }: { className?: string }) {
     },
   ];
   
+  const modifierKey = isMac ? "⌘" : "Ctrl";
+
   return (
     <>
       {/* Botón para abrir la paleta de comandos. */}
@@ -123,7 +123,7 @@ export function CommandPalette({ className }: { className?: string }) {
         variant="outline"
         size="icon"
         className={cn(
-          "h-8 w-8 transition-transform duration-300 hover:scale-110",
+          "h-8 w-8 transition-transform duration-300 hover:scale-110 no-print",
           className
         )}
         onClick={() => setOpen(true)}
@@ -166,7 +166,7 @@ export function CommandPalette({ className }: { className?: string }) {
                 <span>{cmd.name}</span>
                 {cmd.shortcut && (
                   <CommandShortcut>
-                    <Kbd>{isMac ? "⌘" : "Ctrl"}</Kbd>
+                    <Kbd>{modifierKey}</Kbd>
                     <Kbd>{cmd.shortcut}</Kbd>
                   </CommandShortcut>
                 )}
@@ -187,7 +187,7 @@ export function CommandPalette({ className }: { className?: string }) {
                 <span>{cmd.name}</span>
                 {cmd.shortcut && (
                   <CommandShortcut>
-                    <Kbd>{isMac ? "⌘" : "Ctrl"}</Kbd>
+                    <Kbd>{modifierKey}</Kbd>
                     <Kbd>{cmd.shortcut}</Kbd>
                   </CommandShortcut>
                 )}
@@ -203,7 +203,8 @@ export function CommandPalette({ className }: { className?: string }) {
                 <Kbd><ArrowUp size={12}/></Kbd> <Kbd><ArrowDown size={12}/></Kbd> to navigate
             </div>
             <div className="flex items-center gap-1">
-                <Kbd>{isMac ? "Cmd" : "Ctrl"} + K</Kbd> <Kbd>Escape</Kbd> to close
+                 <Kbd className="flex items-center gap-1">{modifierKey} K</Kbd>
+                 <Kbd>Escape</Kbd> to close
             </div>
         </div>
       </CommandDialog>

@@ -1,40 +1,44 @@
 "use client";
 
-// Importaciones del hook del CV y el componente de botón.
+import * as React from "react";
 import { useCV } from "./cv-container";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Check } from "lucide-react";
+import { languages, type Language } from "@/data";
+import { FlagIcon } from "./flag-icon";
 
-/**
- * Componente que renderiza un interruptor para cambiar entre inglés y español.
- * @returns {JSX.Element} El elemento JSX del interruptor de idioma.
- */
 export function LanguageToggle() {
-  // Obtiene el idioma actual (lang) y la función para cambiarlo (setLang) del contexto.
   const { lang, setLang } = useCV();
 
+  const selectedLanguage = languages.find((l) => l.code === lang);
+
   return (
-    // Contenedor del interruptor con estilos para que parezca un grupo de botones.
-    <div className="flex items-center rounded-md border bg-card p-1">
-      {/* Botón para seleccionar inglés. */}
-      <Button
-        // El variant es 'secondary' si el idioma actual es 'en', de lo contrario 'ghost'.
-        variant={lang === "en" ? "secondary" : "ghost"}
-        size="sm"
-        onClick={() => setLang("en")}
-        className="rounded-sm"
-      >
-        EN
-      </Button>
-      {/* Botón para seleccionar español. */}
-      <Button
-        // El variant es 'secondary' si el idioma actual es 'es', de lo contrario 'ghost'.
-        variant={lang === "es" ? "secondary" : "ghost"}
-        size="sm"
-        onClick={() => setLang("es")}
-        className="rounded-sm"
-      >
-        ES
-      </Button>
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">
+           {selectedLanguage && <FlagIcon code={selectedLanguage.code} className="mr-2 h-4 w-4" />}
+          {selectedLanguage?.name}
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {languages.map((language: Language) => (
+          <DropdownMenuItem key={language.code} onClick={() => setLang(language.code)}>
+             <div className="flex items-center justify-between w-full">
+                <div className="flex items-center">
+                    <FlagIcon code={language.code} className="mr-2 h-4 w-4" />
+                    <span>{language.name}</span>
+                </div>
+                {lang === language.code && <Check className="h-4 w-4" />}
+            </div>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }

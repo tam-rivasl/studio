@@ -56,7 +56,7 @@
               ],
               "responsibilities": [
                 "Designed, developed, and maintained backend systems using microservices architecture.",
-                "Collaborated with cross-functional teams to integrate third-party services and ensure regulatory compliance.",
+                "Colaborated with cross-functional teams to integrate third-party services and ensure regulatory compliance.",
                 "Used frontend technologies to implement and improve user-facing features.",
                 "Followed agile methodologies (Scrum) for project management and task prioritization.",
                 "Ensured smooth operation and scalability of backend services through proactive monitoring and maintenance."
@@ -114,22 +114,17 @@
             }
           ],
           "skills": [
-            { "name": "Gitlab", "level": "Intermediate", "icon": "Gitlab" },
-            { "name": "HTML", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "CSS", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "JavaScript", "level": "Intermediate", "icon": "FileJson2" },
-            { "name": "TypeScript", "level": "Intermediate", "icon": "FileJson2" },
-            { "name": "Node.js", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "MySQL", "level": "Intermediate", "icon": "Database" },
-            { "name": "Git", "level": "Intermediate", "icon": "GitBranch" },
-            { "name": "GitHub", "level": "Intermediate", "icon": "Github" },
-            { "name": "Next.js", "level": "Beginner", "icon": "FileCode" },
-            { "name": "React", "level": "Intermediate", "icon": "React" },
-            { "name": "Docker", "level": "Intermediate", "icon": "Docker" },
-            { "name": "Python", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "Java", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "Spring Boot", "level": "Intermediate", "icon": "FileCode" },
-            { "name": "Nest.js", "level": "Intermediate", "icon": "FileCode" }
+            { "name": "Docker", "level": "Intermedio", "icon": "docker" },
+            { "name": "GitLab", "level": "Intermedio", "icon": "gitlab" },
+            { "name": "Github", "level": "Intermedio", "icon": "github" },
+            { "name": "Java", "level": "Intermedio", "icon": "java" },
+            { "name": "JavaScript", "level": "Intermedio", "icon": "javascript" },
+            { "name": "NestJS", "level": "Intermedio", "icon": "nestjs" },
+            { "name": "NextJS", "level": "Intermedio", "icon": "nextjs" },
+            { "name": "PostgreSQL", "level": "Intermedio", "icon": "postgresql" },
+            { "name": "React", "level": "Intermedio", "icon": "react" },
+            { "name": "Spring", "level": "Intermedio", "icon": "spring-boot" },
+            { "name": "TypeScript", "level": "Intermedio", "icon": "typescript" }
           ],
           "languages": [
             {
