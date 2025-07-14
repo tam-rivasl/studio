@@ -1,8 +1,9 @@
 
-# CV Enigma - Currículum Interactivo y Dinámico
+#  Currículum Interactivo y Dinámico
 
-Bienvenido a CV Enigma, un proyecto de currículum vitae (CV) de código abierto, interactivo y personalizable, construido con las últimas tecnologías web. Este proyecto no solo muestra tu información profesional de una manera moderna y elegante, sino que también está diseñado para ser funcional y accesible.
+Bienvenido, el siguiente proyecto es un currículum vitae (CV) de código abierto, interactivo y personalizable, construido con las últimas tecnologías web. Este proyecto no solo muestra tu información profesional de una manera moderna y elegante, sino que también está diseñado para ser funcional y accesible.
 
+//TODO: agregar
 ![Captura de pantalla de la aplicación](https://placehold.co/800x400.png)
 
 ## ✨ Características Principales
