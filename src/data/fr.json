@@ -165,15 +165,5 @@
         { "name": "React", "level": "Intermédiaire", "icon": "react" },
         { "name": "Spring", "level": "Intermédiaire", "icon": "spring-boot" },
         { "name": "TypeScript", "level": "Intermédiaire", "icon": "typescript" }
-    ],
-    "languages": [
-      {
-        "language": "Anglais",
-        "fluency": "A2 - TOEIC Bridge"
-      },
-      {
-        "language": "Espagnol",
-        "fluency": "Natif"
-      }
     ]
   }

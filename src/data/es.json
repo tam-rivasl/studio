@@ -187,11 +187,5 @@
         "Blockchain"
       ]
     }
-  ],
-  "references": [
-    {
-      "name": "Jane Smith",
-      "reference": "Referencia…"
-    }
   ]
 }
