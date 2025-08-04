@@ -76,18 +76,17 @@
 
   /* Ocultar elementos interactivos y decorativos */
   .noprint,
-  .print-hidden,
-  .language-toggle,
-  .theme-toggle,
-  .command-palette-trigger,
-  .snake-preloader,
   header button,
   aside button,
   main button,
-  .flex.items-center.gap-2.mt-6, /* Contenedor de botones de idioma/tema/comandos */
-  .flex.items-center.gap-3.mt-4, /* Tooltips de contacto */
+  .language-toggle,
+  .theme-toggle,
+  .command-palette-trigger,
+  .command-palette-dialog,
   .project-card-image,
-  .command-palette-dialog {
+  .tooltip,
+  .flex.items-center.gap-2.mt-6, /* Contenedor de botones de idioma/tema/comandos */
+  .flex.items-center.gap-3.mt-4 { /* Contenedor de iconos de contacto */
     display: none !important;
   }
   
@@ -95,9 +94,11 @@
   .grid {
     display: block !important;
   }
+
   .lg\:grid-cols-3 {
     grid-template-columns: none !important;
   }
+  
   .lg\:col-span-2, aside {
     display: block !important;
     width: 100% !important;
@@ -108,7 +109,7 @@
   }
   
   main, aside {
-    space-y-0 !important;
+    gap: 0 !important;
   }
 
   /* Estilos para que el contenido fluya correctamente */
@@ -147,9 +148,11 @@
   .text-primary, .text-muted-foreground {
     color: #000 !important;
   }
+
   .bg-background, .bg-card, .dark\:bg-card {
     background-color: transparent !important;
   }
+
   .border, .border-b, .border-input {
     border-color: #ccc !important;
   }
