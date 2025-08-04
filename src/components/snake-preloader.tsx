@@ -120,7 +120,7 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
 
         return newSnake;
       });
-    }, 100); // Velocidad del juego.
+    }, 40); // Velocidad del juego.
 
     return () => clearInterval(gameInterval);
   }, [food, targetFood, onComplete, direction, isHappy]);

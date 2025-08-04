@@ -75,6 +75,7 @@
   }
 
   /* Ocultar elementos interactivos y decorativos */
+  #projects,
   .noprint,
   header button,
   aside button,
