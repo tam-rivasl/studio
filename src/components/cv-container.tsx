@@ -2,7 +2,7 @@
 "use client";
 
 // Importaciones de React, tipos y componentes.
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext, useEffect } from "react";
 import type { CVData } from "@/lib/types";
 import { CVSidebar } from "@/components/cv-sidebar";
 import { ExperienceSection } from "@/components/sections/experience";
@@ -12,6 +12,7 @@ import { ProjectsSection } from "@/components/sections/projects";
 import { CommandPalette } from "./command-palette";
 import { AnimatedSection } from "./animated-section";
 import type { LanguageCode } from "@/data";
+import { triggerPrint } from "@/lib/print";
 
 
 // Define la estructura del contexto del CV.
@@ -56,13 +57,25 @@ export function CVContainer({ data: allData }: { data: Record<LanguageCode, CVDa
     return <div>Loading...</div>;
   }
 
+  // Atajo de teclado para imprimir el CV.
+  useEffect(() => {
+    const handlePrint = (e: KeyboardEvent) => {
+      if (e.key === "p" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        triggerPrint(lang);
+      }
+    };
+    window.addEventListener("keydown", handlePrint);
+    return () => window.removeEventListener("keydown", handlePrint);
+  }, [lang]);
+
   return (
     // Proveedor de contexto que pasa el idioma, la función para cambiarlo y los datos actuales.
     <CVContext.Provider value={{ lang, setLang, data }}>
        {/* Contenedor principal con fondo y padding. */}
-       <div className="min-h-screen bg-background p-4 sm:p-8 md:p-12">
+       <div id="cv-content" className="min-h-screen bg-background p-4 sm:p-8 md:p-12">
         {/* Grid para el diseño de dos columnas en pantallas grandes. */}
-        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-12 print:grid-cols-1">
           {/* Barra lateral pegajosa con la información principal. */}
           <CVSidebar />
           {/* Contenido principal con las diferentes secciones del CV. */}
@@ -83,7 +96,7 @@ export function CVContainer({ data: allData }: { data: Record<LanguageCode, CVDa
         </div>
       </div>
       {/* La paleta de comandos se añade aquí, pero podría estar oculta por defecto. */}
-      <CommandPalette />
+      <CommandPalette className="print:hidden" />
     </CVContext.Provider>
   );
 }

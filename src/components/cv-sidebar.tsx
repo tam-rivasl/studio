@@ -116,7 +116,7 @@ export function CVSidebar({className}: {className?: string}) {
         </TooltipProvider>
 
         {/* Controles de la aplicación */}
-        <div className="flex items-center gap-2 mt-6">
+        <div className="flex items-center gap-2 mt-6 print:hidden">
           <LanguageToggle />
           <ThemeToggle />
           <CommandPalette />
