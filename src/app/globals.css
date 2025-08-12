@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -61,106 +62,76 @@
   }
 }
 
-/* Estilos para ocultar/mostrar elementos en impresión */
 .print-only {
   display: none;
 }
 
-/* Estilos específicos para impresión (ATS-friendly) */
 @media print {
   @page {
-    margin: 10mm; /* Márgenes de la página */
+    margin: 0.5in;
   }
 
   body {
-    background-color: #fff !important; /* Fondo blanco */
-    color: #000 !important; /* Texto negro */
-    font-size: 11pt; /* Tamaño de fuente base */
-    font-family: serif; /* Fuente segura para impresión */
-  }
-  
-  /* Resetear el layout a una sola columna */
-  .grid,
-  .lg\:grid-cols-3 {
-    display: block !important;
-  }
-  
-  .lg\:col-span-2, aside {
-    display: block !important;
-    width: 100% !important;
-    position: static !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    top: auto !important;
-    page-break-inside: avoid;
+    background-color: #fff !important;
+    color: #000 !important;
+    font-size: 10pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
-  .mx-auto.max-w-7xl.grid {
-    gap: 0 !important;
-  }
-  
-  main {
-    gap: 0 !important;
-    margin-top: 24pt !important;
-  }
-
-  /* Ocultar elementos interactivos y decorativos */
+  /* Ocultar elementos no deseados */
   .noprint,
   .language-toggle,
   .theme-toggle,
   .command-palette,
-  .project-card-image,
-  .tooltip,
-  aside .flex.items-center.gap-2.mt-6, /* Contenedor de botones de idioma/tema/comandos */
-  aside .mt-4.flex.flex-wrap.gap-x-4.gap-y-2 .flex.items-center.gap-3 a > svg,
-  aside .mt-4.flex.flex-wrap.gap-x-4.gap-y-2 .flex.items-center.gap-3 button > svg,
   header button,
   main button,
+  .tooltip,
+  .project-card-image,
   .relative.pl-8.before\:absolute::before {
     display: none !important;
   }
   
-  /* Mostrar texto de contacto solo al imprimir */
   .print-only {
-    display: inline !important;
-    font-size: 10pt;
-    font-family: sans-serif;
-  }
-
-  .contact-info {
     display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-    margin-bottom: 12pt;
-    padding-bottom: 12pt;
-    border-bottom: 1px solid #ccc;
-  }
-
-  .contact-info a, .contact-info button {
-    text-decoration: none !important;
-    display: flex;
-    align-items: center;
-    gap: 4px;
   }
   
-  /* Estilos para que el contenido fluya correctamente */
+  /* Resetear layout */
+  .grid {
+    display: block !important;
+  }
+  
+  aside, main {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    gap: 0 !important;
+    page-break-inside: avoid;
+  }
+
+  main {
+    margin-top: 1.5rem !important;
+  }
+
+  /* Estilos para que el contenido fluya */
   section {
-    page-break-inside: avoid; /* Evitar que las secciones se corten entre páginas */
-    margin-bottom: 24pt;
+    page-break-inside: avoid;
+    margin-bottom: 1.5rem;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4 {
     color: #000 !important;
-    font-family: sans-serif;
-    page-break-after: avoid; /* Evitar saltos de página después de los títulos */
+    page-break-after: avoid;
   }
 
-  h1 { font-size: 22pt; margin-bottom: 4pt; }
-  h2 { font-size: 16pt; margin-bottom: 12pt; border-bottom: 1px solid #ccc; padding-bottom: 4pt; }
-  h3 { font-size: 14pt; }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #ccc; }
+  h3 { font-size: 1.25rem; }
+  
   p, li, span {
     color: #000 !important;
-    font-size: 11pt;
   }
   
   a {
@@ -168,29 +139,32 @@
     text-decoration: none;
   }
 
-  /* Mostrar la URL de los enlaces junto al texto */
-  a[href^="http"]:not([href*="linkedin.com"]):not([href*="github.com"])::after {
-    content: " (" attr(href) ")";
-    font-size: 9pt;
-    color: #555;
-  }
-
-  /* Asegurarse de que los colores de los componentes de shadcn no se apliquen */
-  .text-primary, .text-muted-foreground, .text-primary\/80 {
+  /* Forzar visibilidad de colores y fondos */
+  .text-primary, .text-muted-foreground {
     color: #000 !important;
   }
-
-  .bg-background, .bg-card, .dark\:bg-card, .bg-primary {
+  .bg-primary, .bg-card, .bg-background {
     background-color: transparent !important;
   }
-
-  .border, .border-b, .border-input {
+  .border {
     border-color: #ccc !important;
   }
 
-  /* Ajustes finales de espaciado */
-  .space-y-8 > * + * { margin-top: 1.5rem; }
-  .space-y-12 > * + * { margin-top: 2rem; }
-  .mb-6 { margin-bottom: 1.5rem; }
-  .p-4, .sm\:p-8, .md\:p-12 { padding: 0 !important; }
+  .contact-info .noprint {
+    display: none !important;
+  }
+  .contact-info .print-only {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 10pt;
+  }
+  .contact-info .print-only span {
+    font-family: sans-serif;
+  }
+
+  .experience-item > div:first-child {
+    display: none; /* Ocultar el círculo y la línea de tiempo */
+  }
+
 }
