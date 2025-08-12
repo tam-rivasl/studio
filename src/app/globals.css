@@ -122,6 +122,11 @@
   .grid {
     display: block !important;
   }
+  
+  /* Esto elimina el espacio entre las columnas al imprimir */
+  .mx-auto.max-w-7xl.grid {
+    gap: 0 !important;
+  }
 
   .lg\:grid-cols-3 {
     grid-template-columns: none !important;
