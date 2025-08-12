@@ -76,9 +76,9 @@ export function CVContainer({ data: allData }: { data: Record<LanguageCode, CVDa
                 <SkillsSection />
               </div>
             </AnimatedSection>
-            <AnimatedSection>
+            {/* <AnimatedSection>
               <ProjectsSection />
-            </AnimatedSection>
+            </AnimatedSection> */}
           </main>
         </div>
       </div>
