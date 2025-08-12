@@ -14,6 +14,7 @@ import {
   CommandItem,
 } from "@/components/ui/command";
 import { useCV } from "./cv-container";
+import { triggerPrint } from "@/lib/print";
 import { Button } from "./ui/button";
 // Importación de íconos de Lucide React.
 import {
@@ -57,7 +58,7 @@ export function CommandPalette({ className }: { className?: string }) {
   // Estado para controlar la visibilidad de la paleta de comandos.
   const [open, setOpen] = useState(false);
   // Hook personalizado para acceder a los datos y funciones del CV.
-  const { data } = useCV();
+  const { data, lang } = useCV();
   // Estado para detectar si el sistema operativo es macOS.
   const [isMac, setIsMac] = useState(false);
 
@@ -94,7 +95,7 @@ export function CommandPalette({ className }: { className?: string }) {
     {
       name: "Print Resume",
       icon: <Printer className="mr-2 h-4 w-4" />,
-      action: () => window.print(),
+      action: () => triggerPrint(lang),
       shortcut: "P",
     },
   ];
