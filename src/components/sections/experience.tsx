@@ -36,7 +36,7 @@ export function ExperienceSection() {
     if (!date) return 'Present';
     const d = new Date(date);
     // Usar el idioma del contexto para formatear la fecha.
-    return new Intl.DateTimeFormat(lang, { month: 'short', year: 'numeric', timeZone: 'UTC' }).format(d);
+    return new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d);
   }
 
   // Límite de elementos a mostrar cuando la sección está contraída.
@@ -66,7 +66,12 @@ export function ExperienceSection() {
               {/* Fechas de inicio y fin. */}
               <p className="text-sm text-muted-foreground mb-1">{formatDate(job.startDate)} - {formatDate(job.endDate)}</p>
               {/* Cargo y nombre de la empresa con un enlace. */}
-              <h3 className="text-xl font-semibold">{job.position} @ <a href={job.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{job.name}</a></h3>
+              <h3 className="text-xl font-semibold">{job.position}</h3>
+              {job.name && !job.position.includes(job.name) && (
+                  <p className="text-primary hover:underline">
+                      <a href={job.url} target="_blank" rel="noopener noreferrer">{job.name}</a>
+                  </p>
+              )}
               {/* Ubicación y tipo de ubicación. */}
               <p className="text-md text-muted-foreground mb-3">{job.location}, {job.location_type}</p>
               

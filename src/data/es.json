@@ -75,8 +75,8 @@
       ]
     },
     {
-      "name": "Stratech",
-      "position": "Desarrolladora Full Stack",
+      "name": "Zippy Spa",
+      "position": "Desarrolladora Full Stack @ Stratech",
       "location_type": "Remoto",
       "location": "Santiago, Chile",
       "startDate": "2022-07-01",
@@ -108,6 +108,7 @@
       "institution": "Universidad Duoc UC",
       "url": "https://www.duoc.cl/",
       "area": "Analista Programador Computacional",
+      "studyType": "Título Técnico",
       "startDate": "2021",
       "endDate": "2024"
     }
