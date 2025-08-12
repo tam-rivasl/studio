@@ -54,8 +54,10 @@ export function CVSidebar({className}: {className?: string}) {
     ...(basics.phone ? [{
       label: "Phone",
       text: basics.phone,
+      href: `tel:${basics.phone}`,
       icon: <Phone className="h-4 w-4" />,
       action: handleCopyPhone,
+      isButton: true
     }] : []),
     ...basics.profiles.map(profile => ({
       label: profile.network,
@@ -87,18 +89,7 @@ export function CVSidebar({className}: {className?: string}) {
               <span className="flex items-center gap-3">
                  <Tooltip>
                   <TooltipTrigger asChild>
-                    {item.href ? (
-                      <a 
-                        href={item.href} 
-                        target={item.href.startsWith('http') ? '_blank' : '_self'} 
-                        rel="noopener noreferrer" 
-                        aria-label={`Contact via ${item.label}`}
-                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {item.icon}
-                        <span className="print-only">{item.text}</span>
-                      </a>
-                    ) : (
+                    {item.isButton ? (
                       <button 
                         onClick={item.action} 
                         aria-label={`Copy ${item.label}`}
@@ -107,10 +98,21 @@ export function CVSidebar({className}: {className?: string}) {
                         {item.icon}
                         <span className="print-only">{item.text}</span>
                       </button>
+                    ) : (
+                      <a 
+                        href={item.href} 
+                        target={item.href?.startsWith('http') ? '_blank' : '_self'} 
+                        rel="noopener noreferrer" 
+                        aria-label={`Contact via ${item.label}`}
+                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {item.icon}
+                        <span className="print-only">{item.text}</span>
+                      </a>
                     )}
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>{item.label === "Phone" ? "Copiar teléfono" : (item.href ? `Visitar ${item.label}`: item.label)}</p>
+                    <p>{item.isButton ? "Copiar teléfono" : (item.href ? `Visitar ${item.label}`: item.label)}</p>
                   </TooltipContent>
                 </Tooltip>
               </span>

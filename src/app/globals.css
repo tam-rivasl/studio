@@ -102,7 +102,6 @@
 
   /* Ocultar elementos interactivos y decorativos */
   .noprint,
-  #projects,
   .language-toggle,
   .theme-toggle,
   .command-palette-trigger,
@@ -111,23 +110,23 @@
   .tooltip,
   .flex.items-center.gap-2.mt-6, /* Contenedor de botones de idioma/tema/comandos */
   aside .flex.items-center.gap-3.mt-4, /* Contenedor de iconos de contacto en la web */
-  .contact-info .tooltip, /* Ocultar tooltips al imprimir */
   header button,
   aside button,
   main button {
     display: none !important;
   }
   
+  /* Hacemos visibles los botones dentro de .contact-info para la impresión */
+  .contact-info button {
+    display: flex !important;
+  }
+  
   /* Resetear el layout a una sola columna */
   .grid {
     display: block !important;
-  }
-  
-  /* Esto elimina el espacio entre las columnas al imprimir */
-  .mx-auto.max-w-7xl.grid {
     gap: 0 !important;
   }
-
+  
   .lg\:grid-cols-3 {
     grid-template-columns: none !important;
   }
@@ -139,9 +138,10 @@
     top: auto !important;
     padding: 0 !important;
     margin: 0 !important;
+    gap: 0 !important;
   }
   
-  main, aside {
+  main {
     gap: 0 !important;
   }
 
