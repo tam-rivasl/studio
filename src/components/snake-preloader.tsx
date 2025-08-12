@@ -120,7 +120,7 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
 
         return newSnake;
       });
-    }, 40); // Velocidad del juego.
+    }, 20); // Velocidad del juego.
 
     return () => clearInterval(gameInterval);
   }, [food, targetFood, onComplete, direction, isHappy]);
@@ -189,11 +189,6 @@ export const SnakePreloader = ({ onComplete }: { onComplete: () => void }) => {
             {f.char}
           </div>
         ))}
-      </div>
-      {/* Barra de progreso y texto de carga. */}
-       <div className="w-full max-w-lg mt-8">
-        <Progress value={progress} className="h-4 rounded-full" />
-        <p className="text-center font-mono mt-2 text-sm text-primary">Loading... {Math.round(progress)}%</p>
       </div>
     </div>
   );
