@@ -79,23 +79,30 @@
     font-family: serif; /* Fuente segura para impresión */
   }
 
-  /* Mostrar texto de contacto solo al imprimir */
-  .print-only {
-    display: inline !important;
-    font-size: 11pt;
-    font-family: sans-serif;
+  .contact-info {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-bottom: 12pt;
   }
 
   .contact-info a, .contact-info button {
     text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Mostrar texto de contacto solo al imprimir */
+  .print-only {
+    display: inline !important;
+    font-size: 10pt;
+    font-family: sans-serif;
   }
 
   /* Ocultar elementos interactivos y decorativos */
-  #projects,
   .noprint,
-  header button,
-  aside button,
-  main button,
+  #projects,
   .language-toggle,
   .theme-toggle,
   .command-palette-trigger,
@@ -104,7 +111,10 @@
   .tooltip,
   .flex.items-center.gap-2.mt-6, /* Contenedor de botones de idioma/tema/comandos */
   aside .flex.items-center.gap-3.mt-4, /* Contenedor de iconos de contacto en la web */
-  .contact-info .tooltip { /* Ocultar tooltips al imprimir */
+  .contact-info .tooltip, /* Ocultar tooltips al imprimir */
+  header button,
+  aside button,
+  main button {
     display: none !important;
   }
   

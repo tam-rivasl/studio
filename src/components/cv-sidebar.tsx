@@ -59,7 +59,7 @@ export function CVSidebar({className}: {className?: string}) {
     }] : []),
     ...basics.profiles.map(profile => ({
       label: profile.network,
-      text: profile.url.replace('https://', ''),
+      text: profile.url.replace('https://www.', ''),
       href: profile.url,
       icon: profile.network.toLowerCase() === 'linkedin' ? <Linkedin className="h-4 w-4" /> : <Github className="h-4 w-4" />,
       action: () => {}
@@ -81,10 +81,10 @@ export function CVSidebar({className}: {className?: string}) {
         </div>
 
         {/* Iconos de contacto */}
-        <div className="mt-4 space-y-2 contact-info">
+        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 contact-info">
           {contactItems.map(item => (
             <TooltipProvider key={item.label}>
-              <div className="flex items-center gap-3">
+              <span className="flex items-center gap-3">
                  <Tooltip>
                   <TooltipTrigger asChild>
                     {item.href ? (
@@ -113,13 +113,13 @@ export function CVSidebar({className}: {className?: string}) {
                     <p>{item.label === "Phone" ? "Copiar teléfono" : (item.href ? `Visitar ${item.label}`: item.label)}</p>
                   </TooltipContent>
                 </Tooltip>
-              </div>
+              </span>
             </TooltipProvider>
           ))}
         </div>
         
         {/* Controles de la aplicación */}
-        <div className="flex items-center gap-2 mt-6">
+        <div className="flex items-center gap-2 mt-6 noprint">
           <LanguageToggle />
           <ThemeToggle />
           <CommandPalette />
