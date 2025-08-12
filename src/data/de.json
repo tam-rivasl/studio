@@ -43,12 +43,12 @@
     },
     "work": [
       {
-        "name": "Evolvetech Spa (Früher Stratech)",
+        "name": "Evolvetech Spa (Früher Zippy Spa)",
         "position": "Full Stack Entwicklerin / Back-End Entwicklerin",
         "location_type": "Remote",
         "location": "Santiago, Chile",
         "url": "https://juegalo.com/cl",
-        "startDate": "2023-05-01",
+        "startDate": "2024-03-01",
         "endDate": null,
         "summary": "Ich habe umfangreiche Erfahrung in der Arbeit an Frontend- und Backend-Systemen in der Casino-Branche gesammelt, mit Schwerpunkt auf Microservices-Architektur, REST-APIs und Integrationsprojekten. Im Laufe der Zeit habe ich an der Lösung von Produktionsproblemen, der Entwicklung geschäftskritischer Funktionen und der Integration von Drittanbieterdiensten für Sportwetten und Benutzerverifizierung gearbeitet.",
         "responsibilities": [
@@ -72,12 +72,13 @@
         ]
       },
       {
-        "name": "Stratech",
-        "position": "Full Stack Entwicklerin",
+        "name": "Zippy Spa",
+        "position": "Full Stack Entwicklerin / Back-End Entwicklerin",
         "location_type": "Remote",
         "location": "Santiago, Chile",
+        "url": "https://juegalo.com/cl",
         "startDate": "2022-07-01",
-        "endDate": "2023-05-01",
+        "endDate": "2023-10-01",
         "responsibilities": [
           "Arbeit als Teil eines Notfallteams, Lösung von Produktionsproblemen und Verwaltung dringender Tickets, um den reibungslosen Betrieb der Casino-Plattform sicherzustellen.",
           "Entwicklung und Wartung von Frontend-Funktionen mit Next.js, React.js und Ant Design.",

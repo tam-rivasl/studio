@@ -43,12 +43,12 @@
     },
     "work": [
       {
-        "name": "Evolvetech Spa (Anciennement Stratech)",
+        "name": "Evolvetech Spa (Anciennement Zippy Spa)",
         "position": "Développeuse Full Stack / Back-End",
         "location_type": "À distance",
         "location": "Santiago, Chili",
         "url": "https://juegalo.com/cl",
-        "startDate": "2023-05-01",
+        "startDate": "2024-03-01",
         "endDate": null,
         "summary": "J'ai acquis une vaste expérience en travaillant sur des systèmes frontend et backend dans l'industrie des casinos, en me concentrant sur l'architecture de microservices, les API REST et les projets d'intégration. Au fil du temps, j'ai travaillé à la résolution de problèmes de production, à la création de fonctionnalités critiques pour l'entreprise et à l'intégration de services tiers pour les opérations de paris sportifs et la vérification des utilisateurs.",
         "responsibilities": [
@@ -72,12 +72,13 @@
         ]
       },
       {
-        "name": "Stratech",
-        "position": "Développeuse Full Stack",
+        "name": " Zippy Spa",
+        "position": "Développeuse Full Stack / Back-End",
         "location_type": "À distance",
         "location": "Santiago, Chili",
+        "url": "https://juegalo.com/cl",
         "startDate": "2022-07-01",
-        "endDate": "2023-05-01",
+        "endDate": "2023-10-01",
         "responsibilities": [
           "Travail au sein d'une équipe de contingence, résolution des problèmes de production et gestion des tickets urgents pour assurer le bon fonctionnement de la plateforme de casino.",
           "Développement et maintenance de fonctionnalités frontend avec Next.js, React.js et Ant Design.",
@@ -105,6 +106,7 @@
         "institution": "Université Duoc UC",
         "url": "https://www.duoc.cl/",
         "area": "Analyste Programmeuse en Informatique",
+        "studyType": "Diplôme Technique",
         "startDate": "2021",
         "endDate": "2024"
       }

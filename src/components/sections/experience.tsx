@@ -10,8 +10,8 @@ import { Button } from "@/components/ui/button";
  * @returns {JSX.Element} El elemento JSX de la sección de experiencia.
  */
 export function ExperienceSection() {
-  // Obtiene los datos del trabajo del contexto del CV.
-  const { data } = useCV();
+  // Obtiene los datos del trabajo y el idioma del contexto del CV.
+  const { data, lang } = useCV();
   const { work, basics } = data;
 
   // Estado para gestionar qué tarjetas de experiencia están expandidas.
@@ -27,7 +27,7 @@ export function ExperienceSection() {
   };
 
   /**
-   * Formatea una fecha en formato 'Mes Año'. Si la fecha es nula, devuelve 'Present'.
+   * Formatea una fecha en formato 'Mes Año' según el idioma actual. Si la fecha es nula, devuelve 'Present'.
    * Se especifica 'timeZone: 'UTC'' para evitar errores de hidratación entre servidor y cliente.
    * @param {string | null} date - La cadena de fecha a formatear.
    * @returns {string} La fecha formateada.
@@ -35,8 +35,8 @@ export function ExperienceSection() {
   const formatDate = (date: string | null) => {
     if (!date) return 'Present';
     const d = new Date(date);
-    // Usar una configuración regional específica (en-US) y UTC asegura consistencia.
-    return new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' }).format(d);
+    // Usar el idioma del contexto para formatear la fecha.
+    return new Intl.DateTimeFormat(lang, { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(d);
   }
 
   // Límite de elementos a mostrar cuando la sección está contraída.
@@ -66,7 +66,12 @@ export function ExperienceSection() {
               {/* Fechas de inicio y fin. */}
               <p className="text-sm text-muted-foreground mb-1">{formatDate(job.startDate)} - {formatDate(job.endDate)}</p>
               {/* Cargo y nombre de la empresa con un enlace. */}
-              <h3 className="text-xl font-semibold">{job.position} @ <a href={job.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{job.name}</a></h3>
+              <h3 className="text-xl font-semibold">{job.position}</h3>
+              {job.name && !job.position.includes(job.name) && (
+                  <p className="text-primary hover:underline">
+                      <a href={job.url} target="_blank" rel="noopener noreferrer">{job.name}</a>
+                  </p>
+              )}
               {/* Ubicación y tipo de ubicación. */}
               <p className="text-md text-muted-foreground mb-3">{job.location}, {job.location_type}</p>
               

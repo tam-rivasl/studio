@@ -60,3 +60,134 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Estilos para ocultar/mostrar elementos en impresión */
+.print-only {
+  display: none;
+}
+
+/* Estilos específicos para impresión (ATS-friendly) */
+@media print {
+  @page {
+    margin: 10mm; /* Márgenes de la página */
+  }
+
+  body {
+    background-color: #fff !important; /* Fondo blanco */
+    color: #000 !important; /* Texto negro */
+    font-size: 11pt; /* Tamaño de fuente base */
+    font-family: serif; /* Fuente segura para impresión */
+  }
+
+  .contact-info {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    margin-bottom: 12pt;
+  }
+
+  .contact-info a, .contact-info button {
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Mostrar texto de contacto solo al imprimir */
+  .print-only {
+    display: inline !important;
+    font-size: 10pt;
+    font-family: sans-serif;
+  }
+
+  /* Ocultar elementos interactivos y decorativos */
+  .noprint,
+  #projects,
+  .language-toggle,
+  .theme-toggle,
+  .command-palette-trigger,
+  .command-palette-dialog,
+  .project-card-image,
+  .tooltip,
+  .flex.items-center.gap-2.mt-6, /* Contenedor de botones de idioma/tema/comandos */
+  aside .flex.items-center.gap-3.mt-4, /* Contenedor de iconos de contacto en la web */
+  .contact-info .tooltip, /* Ocultar tooltips al imprimir */
+  header button,
+  aside button,
+  main button {
+    display: none !important;
+  }
+  
+  /* Resetear el layout a una sola columna */
+  .grid {
+    display: block !important;
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: none !important;
+  }
+  
+  .lg\:col-span-2, aside {
+    display: block !important;
+    width: 100% !important;
+    position: static !important;
+    top: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  main, aside {
+    gap: 0 !important;
+  }
+
+  /* Estilos para que el contenido fluya correctamente */
+  section {
+    page-break-inside: avoid; /* Evitar que las secciones se corten entre páginas */
+    margin-bottom: 24pt;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #000 !important;
+    font-family: sans-serif;
+    page-break-after: avoid; /* Evitar saltos de página después de los títulos */
+  }
+
+  h1 { font-size: 22pt; }
+  h2 { font-size: 16pt; margin-bottom: 12pt; border-bottom: 1px solid #ccc; padding-bottom: 4pt; }
+  h3 { font-size: 14pt; }
+  p, li, span {
+    color: #000 !important;
+    font-size: 11pt;
+  }
+  
+  a {
+    color: #000 !important;
+    text-decoration: none;
+  }
+
+  /* Mostrar la URL de los enlaces junto al texto */
+  a[href^="http"]:not([href*="linkedin.com"]):not([href*="github.com"])::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+  }
+
+  /* Asegurarse de que los colores de los componentes de shadcn no se apliquen */
+  .text-primary, .text-muted-foreground {
+    color: #000 !important;
+  }
+
+  .bg-background, .bg-card, .dark\:bg-card {
+    background-color: transparent !important;
+  }
+
+  .border, .border-b, .border-input {
+    border-color: #ccc !important;
+  }
+
+  /* Ajustes finales de espaciado */
+  .space-y-8 > * + * { margin-top: 1.5rem; }
+  .space-y-12 > * + * { margin-top: 2rem; }
+  .mb-6 { margin-bottom: 1.5rem; }
+  .p-4, .sm\:p-8, .md\:p-12 { padding: 0 !important; }
+}

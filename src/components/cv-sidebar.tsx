@@ -1,4 +1,3 @@
-
 "use client";
 
 // Importaciones de Next.js, React, hooks y componentes.
@@ -47,20 +46,20 @@ export function CVSidebar({className}: {className?: string}) {
   const contactItems = [
     ...(basics.email ? [{
       label: "Email",
-      value: basics.email,
+      text: basics.email,
       href: `mailto:${basics.email}`,
       icon: <Mail className="h-4 w-4" />,
       action: () => {}
     }] : []),
     ...(basics.phone ? [{
       label: "Phone",
-      value: basics.phone,
+      text: basics.phone,
       icon: <Phone className="h-4 w-4" />,
       action: handleCopyPhone,
     }] : []),
     ...basics.profiles.map(profile => ({
       label: profile.network,
-      value: profile.url,
+      text: profile.url.replace('https://www.', ''),
       href: profile.url,
       icon: profile.network.toLowerCase() === 'linkedin' ? <Linkedin className="h-4 w-4" /> : <Github className="h-4 w-4" />,
       action: () => {}
@@ -82,41 +81,45 @@ export function CVSidebar({className}: {className?: string}) {
         </div>
 
         {/* Iconos de contacto */}
-        <TooltipProvider>
-          <div className="flex items-center gap-3 mt-4">
-            {contactItems.map(item => (
-               <Tooltip key={item.label}>
-                <TooltipTrigger asChild>
-                  {item.href ? (
-                    <a 
-                      href={item.href} 
-                      target={item.href.startsWith('http') ? '_blank' : '_self'} 
-                      rel="noopener noreferrer" 
-                      aria-label={`Contact via ${item.label}`}
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {item.icon}
-                    </a>
-                  ) : (
-                    <button 
-                      onClick={item.action} 
-                      aria-label={`Copy ${item.label}`}
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      {item.icon}
-                    </button>
-                  )}
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.label === "Phone" ? "Copiar teléfono" : (item.href ? `Visitar ${item.label}`: item.label)}</p>
-                </TooltipContent>
-              </Tooltip>
-            ))}
-          </div>
-        </TooltipProvider>
-
+        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 contact-info">
+          {contactItems.map(item => (
+            <TooltipProvider key={item.label}>
+              <span className="flex items-center gap-3">
+                 <Tooltip>
+                  <TooltipTrigger asChild>
+                    {item.href ? (
+                      <a 
+                        href={item.href} 
+                        target={item.href.startsWith('http') ? '_blank' : '_self'} 
+                        rel="noopener noreferrer" 
+                        aria-label={`Contact via ${item.label}`}
+                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {item.icon}
+                        <span className="print-only">{item.text}</span>
+                      </a>
+                    ) : (
+                      <button 
+                        onClick={item.action} 
+                        aria-label={`Copy ${item.label}`}
+                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        {item.icon}
+                        <span className="print-only">{item.text}</span>
+                      </button>
+                    )}
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{item.label === "Phone" ? "Copiar teléfono" : (item.href ? `Visitar ${item.label}`: item.label)}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </span>
+            </TooltipProvider>
+          ))}
+        </div>
+        
         {/* Controles de la aplicación */}
-        <div className="flex items-center gap-2 mt-6 print:hidden">
+        <div className="flex items-center gap-2 mt-6 noprint">
           <LanguageToggle />
           <ThemeToggle />
           <CommandPalette />

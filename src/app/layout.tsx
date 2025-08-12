@@ -10,8 +10,8 @@ import "flag-icons/css/flag-icons.min.css";
 
 // Metadatos de la página, importantes para SEO y para cómo se muestra en el navegador.
 export const metadata: Metadata = {
-  title: "CV Enigma",
-  description: "An interactive and dynamic curriculum vitae.",
+  title: "Tamara Rivas",
+  description: "CV Interactivo y dinámico de Tamara Rivas, Desarrolladora Back-End.",
 };
 
 /**
