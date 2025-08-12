@@ -1,3 +1,4 @@
+
 "use client";
 
 // Importaciones de Next.js, React, hooks y componentes.
@@ -86,35 +87,44 @@ export function CVSidebar({className}: {className?: string}) {
         <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 contact-info">
           {contactItems.map(item => (
             <TooltipProvider key={item.label}>
-              <span className="flex items-center gap-3">
-                 <Tooltip>
-                  <TooltipTrigger asChild>
-                    {item.isButton ? (
-                      <button 
-                        onClick={item.action} 
-                        aria-label={`Copy ${item.label}`}
-                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {item.icon}
-                        <span className="print-only">{item.text}</span>
-                      </button>
-                    ) : (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  {item.isButton ? (
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={item.action} 
+                      aria-label={`Copy ${item.label}`}
+                      className="h-8 w-8 transition-transform duration-300 hover:scale-110 noprint"
+                    >
+                      {item.icon}
+                    </Button>
+                  ) : (
+                    <Button
+                      asChild
+                      variant="outline"
+                      size="icon"
+                      className="h-8 w-8 transition-transform duration-300 hover:scale-110 noprint"
+                    >
                       <a 
                         href={item.href} 
                         target={item.href?.startsWith('http') ? '_blank' : '_self'} 
                         rel="noopener noreferrer" 
                         aria-label={`Contact via ${item.label}`}
-                        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                       >
                         {item.icon}
-                        <span className="print-only">{item.text}</span>
                       </a>
-                    )}
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{item.isButton ? "Copiar teléfono" : (item.href ? `Visitar ${item.label}`: item.label)}</p>
-                  </TooltipContent>
-                </Tooltip>
+                    </Button>
+                  )}
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p className="noprint">{item.isButton ? "Copiar teléfono" : (item.href ? `Visitar ${item.label}`: item.label)}</p>
+                </TooltipContent>
+              </Tooltip>
+              {/* Elementos solo para impresión */}
+              <span className="print-only flex items-center gap-2 text-muted-foreground">
+                {item.icon}
+                <span>{item.label}</span>
               </span>
             </TooltipProvider>
           ))}
