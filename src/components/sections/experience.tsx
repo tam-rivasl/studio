@@ -10,8 +10,8 @@ import { Button } from "@/components/ui/button";
  * @returns {JSX.Element} El elemento JSX de la sección de experiencia.
  */
 export function ExperienceSection() {
-  // Obtiene los datos del trabajo del contexto del CV.
-  const { data } = useCV();
+  // Obtiene los datos del trabajo y el idioma del contexto del CV.
+  const { data, lang } = useCV();
   const { work, basics } = data;
 
   // Estado para gestionar qué tarjetas de experiencia están expandidas.
@@ -27,7 +27,7 @@ export function ExperienceSection() {
   };
 
   /**
-   * Formatea una fecha en formato 'Mes Año'. Si la fecha es nula, devuelve 'Present'.
+   * Formatea una fecha en formato 'Mes Año' según el idioma actual. Si la fecha es nula, devuelve 'Present'.
    * Se especifica 'timeZone: 'UTC'' para evitar errores de hidratación entre servidor y cliente.
    * @param {string | null} date - La cadena de fecha a formatear.
    * @returns {string} La fecha formateada.
@@ -35,8 +35,8 @@ export function ExperienceSection() {
   const formatDate = (date: string | null) => {
     if (!date) return 'Present';
     const d = new Date(date);
-    // Usar una configuración regional específica (en-US) y UTC asegura consistencia.
-    return new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' }).format(d);
+    // Usar el idioma del contexto para formatear la fecha.
+    return new Intl.DateTimeFormat(lang, { month: 'short', year: 'numeric', timeZone: 'UTC' }).format(d);
   }
 
   // Límite de elementos a mostrar cuando la sección está contraída.
