@@ -73,9 +73,10 @@
       },
       {
         "name": "Zippy Spa",
-        "position": "Développeuse Full Stack @ Stratech",
+        "position": "Développeuse Full Stack",
         "location_type": "À distance",
         "location": "Santiago, Chili",
+        "url": "https://juegalo.com/cl",
         "startDate": "2022-07-01",
         "endDate": "2023-10-01",
         "responsibilities": [
