@@ -61,6 +61,11 @@
   }
 }
 
+/* Estilos para ocultar/mostrar elementos en impresión */
+.print-only {
+  display: none;
+}
+
 /* Estilos específicos para impresión (ATS-friendly) */
 @media print {
   @page {
@@ -72,6 +77,17 @@
     color: #000 !important; /* Texto negro */
     font-size: 11pt; /* Tamaño de fuente base */
     font-family: serif; /* Fuente segura para impresión */
+  }
+
+  /* Mostrar texto de contacto solo al imprimir */
+  .print-only {
+    display: inline !important;
+    font-size: 11pt;
+    font-family: sans-serif;
+  }
+
+  .contact-info a, .contact-info button {
+    text-decoration: none !important;
   }
 
   /* Ocultar elementos interactivos y decorativos */
@@ -87,7 +103,8 @@
   .project-card-image,
   .tooltip,
   .flex.items-center.gap-2.mt-6, /* Contenedor de botones de idioma/tema/comandos */
-  .flex.items-center.gap-3.mt-4 { /* Contenedor de iconos de contacto */
+  aside .flex.items-center.gap-3.mt-4, /* Contenedor de iconos de contacto en la web */
+  .contact-info .tooltip { /* Ocultar tooltips al imprimir */
     display: none !important;
   }
   
