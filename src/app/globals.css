@@ -78,12 +78,62 @@
     font-size: 11pt; /* Tamaño de fuente base */
     font-family: serif; /* Fuente segura para impresión */
   }
+  
+  /* Resetear el layout a una sola columna */
+  .grid,
+  .lg\:grid-cols-3 {
+    display: block !important;
+  }
+  
+  .lg\:col-span-2, aside {
+    display: block !important;
+    width: 100% !important;
+    position: static !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    top: auto !important;
+    page-break-inside: avoid;
+  }
+
+  .mx-auto.max-w-7xl.grid {
+    gap: 0 !important;
+  }
+  
+  main {
+    gap: 0 !important;
+    margin-top: 24pt !important;
+  }
+
+  /* Ocultar elementos interactivos y decorativos */
+  .noprint,
+  .language-toggle,
+  .theme-toggle,
+  .command-palette,
+  .project-card-image,
+  .tooltip,
+  aside .flex.items-center.gap-2.mt-6, /* Contenedor de botones de idioma/tema/comandos */
+  aside .mt-4.flex.flex-wrap.gap-x-4.gap-y-2 .flex.items-center.gap-3 a > svg,
+  aside .mt-4.flex.flex-wrap.gap-x-4.gap-y-2 .flex.items-center.gap-3 button > svg,
+  header button,
+  main button,
+  .relative.pl-8.before\:absolute::before {
+    display: none !important;
+  }
+  
+  /* Mostrar texto de contacto solo al imprimir */
+  .print-only {
+    display: inline !important;
+    font-size: 10pt;
+    font-family: sans-serif;
+  }
 
   .contact-info {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 12px !important;
     margin-bottom: 12pt;
+    padding-bottom: 12pt;
+    border-bottom: 1px solid #ccc;
   }
 
   .contact-info a, .contact-info button {
@@ -92,59 +142,7 @@
     align-items: center;
     gap: 4px;
   }
-
-  /* Mostrar texto de contacto solo al imprimir */
-  .print-only {
-    display: inline !important;
-    font-size: 10pt;
-    font-family: sans-serif;
-  }
-
-  /* Ocultar elementos interactivos y decorativos */
-  .noprint,
-  .language-toggle,
-  .theme-toggle,
-  .command-palette-trigger,
-  .command-palette-dialog,
-  .project-card-image,
-  .tooltip,
-  .flex.items-center.gap-2.mt-6, /* Contenedor de botones de idioma/tema/comandos */
-  aside .flex.items-center.gap-3.mt-4, /* Contenedor de iconos de contacto en la web */
-  header button,
-  aside button,
-  main button {
-    display: none !important;
-  }
   
-  /* Hacemos visibles los botones dentro de .contact-info para la impresión */
-  .contact-info button {
-    display: flex !important;
-  }
-  
-  /* Resetear el layout a una sola columna */
-  .grid {
-    display: block !important;
-    gap: 0 !important;
-  }
-  
-  .lg\:grid-cols-3 {
-    grid-template-columns: none !important;
-  }
-  
-  .lg\:col-span-2, aside {
-    display: block !important;
-    width: 100% !important;
-    position: static !important;
-    top: auto !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    gap: 0 !important;
-  }
-  
-  main {
-    gap: 0 !important;
-  }
-
   /* Estilos para que el contenido fluya correctamente */
   section {
     page-break-inside: avoid; /* Evitar que las secciones se corten entre páginas */
@@ -157,7 +155,7 @@
     page-break-after: avoid; /* Evitar saltos de página después de los títulos */
   }
 
-  h1 { font-size: 22pt; }
+  h1 { font-size: 22pt; margin-bottom: 4pt; }
   h2 { font-size: 16pt; margin-bottom: 12pt; border-bottom: 1px solid #ccc; padding-bottom: 4pt; }
   h3 { font-size: 14pt; }
   p, li, span {
@@ -178,11 +176,11 @@
   }
 
   /* Asegurarse de que los colores de los componentes de shadcn no se apliquen */
-  .text-primary, .text-muted-foreground {
+  .text-primary, .text-muted-foreground, .text-primary\/80 {
     color: #000 !important;
   }
 
-  .bg-background, .bg-card, .dark\:bg-card {
+  .bg-background, .bg-card, .dark\:bg-card, .bg-primary {
     background-color: transparent !important;
   }
 
